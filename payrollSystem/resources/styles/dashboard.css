@@ -1,3 +1,16 @@
+::-webkit-scrollbar {
+    width: 0.5vw;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(15, 17, 33);
+    border-radius: 1vw;
+}
+
 .container {
     height: 100vh;
     width: 100%;
@@ -81,6 +94,7 @@ nav {
     font-family: var(--header-text-font);
     color: white;
     font-size: 1vw;
+    font-weight: 500;
 }
 
 .profile-icon {
@@ -92,6 +106,8 @@ nav {
     width: 100%;
     display: grid;
     grid-template: auto / 1fr 4.25fr;
+    border-bottom-right-radius: 0.9vw;
+    overflow: hidden;
 }
 
 .logo img {
@@ -103,9 +119,83 @@ nav {
 }
 
 .left-pane {
-    
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+    padding: 3vh 1.6vw;
+}
+
+.category {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+    position: relative;
+    margin-bottom: 2vh;
+}
+
+.category-title {
+    width: 100%;
+    height: max-content;
+    position: relative;
+    margin-bottom: 1.5vh;
+}
+
+.category-title h3 {
+    color: rgba(140, 140, 140, 0.5);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1vw;
+    font-weight: 500;
+}
+
+.category-items {
+    width: 100%;
+    height: max-content;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    color: white;
+}
+
+.category-items a {
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    padding: 1vh 0.75vw;
+    text-decoration: none;
+    color: white;
+    transition: .3s ease;
+}
+
+.category-items a:hover {
+    background-color: rgb(12, 15, 25, 0.3);
+    border-radius: 0.4vw;
+}
+
+.category-items i {
+    width: 1.2vw;
+    font-size: 1.2vw;
+    height: max-content;
+    margin-right: 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 .right-pane {
-    background-color: blue;
+    position: relative;
+    background-color: rgba(33, 33, 33, 0.4);
+    overflow-y: scroll;
 }
