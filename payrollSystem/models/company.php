@@ -6,7 +6,7 @@ class Company
     private $id;
     private $name;
     private $industry;
-    private $address;
+    private $street;
     private $city;
     private $province;
     private $country;
@@ -80,7 +80,7 @@ class Company
      */ 
     public function getAddress()
     {
-        return $this->address;
+        return $this->street;
     }
 
     /**
@@ -88,9 +88,9 @@ class Company
      *
      * @return  self
      */ 
-    public function setAddress($address)
+    public function setAddress($street)
     {
-        $this->address = $address;
+        $this->street = $street;
 
         return $this;
     }
@@ -235,12 +235,12 @@ class Company
         return $this;
     }
 
-    public function __construct($id, $name, $industry, $address, $city, $province, $country, $postalCode, $phoneNumber, $email, $foundedDate) {
+    public function __construct($id, $name, $industry, $street, $city, $province, $country, $postalCode, $phoneNumber, $email, $foundedDate) {
 
         $this->id = $id;
         $this->name = $name;
         $this->industry = $industry;
-        $this->address = $address;
+        $this->street = $street;
         $this->city = $city;
         $this->province = $province;
         $this->country = $country;

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -12,15 +12,18 @@
             box-sizing: border-box;
         }
 
-        .container {
+        #container {
             height: 100vh;
             width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            background-color: rgba(255, 255, 255, 0.5);
+            position: absolute;
+            background-color: rgba(21, 21, 21, 0.5);
             backdrop-filter: blur(1vw);
+            z-index: 5;
+            opacity: 1;
+            transition: 1s ease;
         }
 
         .loading-screen {
@@ -33,30 +36,52 @@
             position: relative;
         }
 
-        .gif img {
-            width: 15vw;
+        @keyframes spin {
+            from {
+                rotate: 0;
+            }
+
+            to {
+                rotate: 360deg;
+            }
         }
 
-        .loading-text {
-            font-family: 'Segoe UI', sans-serif;
+        .loading-icon {
+            margin-top: 3vh;
         }
 
-        .loading-text h1 {
-            font-size: 1.2vw;
+        .loading-icon i {
+            font-size: 4vw;
+            color: white;
+            animation: spin 2s ease infinite;
         }
 
+        .hide-loading {
+            opacity: 0 !important;
+        }
     </style>
 </head>
+
 <body>
-    <div class="container">
+    <div class="container" id="container">
         <div class="loading-screen">
-            <div class="gif">
-                <img src="../resources/images/pig-run.gif">
-            </div>
-            <div class="loading-text">
-                <h1>Loading<span>.</span><span>.</span><span>.</span></h1>
+            <div class="loading-icon">
+                <i class="fa-duotone fa-spinner"></i>
             </div>
         </div>
     </div>
+    <script>
+
+        const loadingScreen = document.getElementById('container');
+
+        setTimeout(() => {
+            loadingScreen.classList.add('hide-loading');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 1000); // Add a delay matching the transition duration
+        }, 5000);
+
+    </script>
 </body>
+
 </html>

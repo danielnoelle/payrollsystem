@@ -13,6 +13,10 @@ class User
     private $role;
     private $position;
     private $hoursWorked;
+    private $street;
+    private $city;
+    private $province;
+    private $country;
 
 
 
@@ -177,7 +181,7 @@ class User
         return $this;
     }
 
-    public function __construct($email, $password, $firstName, $lastName, $gender, $birthdate, $contactNumber, $role, $position, $hoursWorked)
+    public function __construct($email, $password, $firstName, $lastName, $gender, $birthdate, $contactNumber, $role, $position, $hoursWorked, $street, $city, $province, $country)
     {
 
         $this->email = $email;
@@ -190,6 +194,11 @@ class User
         $this->role = $role;
         $this->position = $position;
         $this->hoursWorked = $hoursWorked;
+        $this->street = $street;
+        $this->city = $city;
+        $this->province = $province;
+        $this->country = $country;
+        
     }
 
     /**
@@ -228,6 +237,86 @@ class User
     public function setHoursWorked($hoursWorked)
     {
         $this->hoursWorked = $hoursWorked;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of street
+     */ 
+    public function getStreet()
+    {
+        return $this->street;
+    }
+
+    /**
+     * Set the value of street
+     *
+     * @return  self
+     */ 
+    public function setStreet($street)
+    {
+        $this->street = $street;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of city
+     */ 
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    /**
+     * Set the value of city
+     *
+     * @return  self
+     */ 
+    public function setCity($city)
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of province
+     */ 
+    public function getProvince()
+    {
+        return $this->province;
+    }
+
+    /**
+     * Set the value of province
+     *
+     * @return  self
+     */ 
+    public function setProvince($province)
+    {
+        $this->province = $province;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of country
+     */ 
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * Set the value of country
+     *
+     * @return  self
+     */ 
+    public function setCountry($country)
+    {
+        $this->country = $country;
 
         return $this;
     }
