@@ -32,24 +32,38 @@
             </div>
             <div class="bottom">
                 <div class="left-pane">
-                    <div class="category">
-                        <div class="category-title">
-                            <h3>General</h3>
+                    <div class="categories">
+                        <div class="category">
+                            <div class="category-title">
+                                <h3>General</h3>
+                            </div>
+                            <div class="category-items">
+                                <a href="#" class="active"><i class="fa-light fa-grid"></i>Dashboard</a>
+                                <a href="#"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
+                                <a href="#"><i class="fa-light fa-user-group"></i>Employee</a>
+                                <a href="#"><i class="fa-light fa-file-invoice"></i>Report</a>
+                            </div>
                         </div>
-                        <div class="category-items">
-                            <a href="#"><i class="fa-light fa-grid"></i>Dashboard</a>
-                            <a href="#"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                            <a href="#"><i class="fa-light fa-user-group"></i>Employee</a>
-                            <a href="#"><i class="fa-light fa-file-invoice"></i>Report</a>
+                        <div class="category">
+                            <div class="category-title">
+                                <h3>Others</h3>
+                            </div>
+                            <div class="category-items">
+                                <a href="#"><i class="fa-regular fa-circle-info"></i>Support</a>
+                                <a href="#"><i class="fa-regular fa-gear"></i>Settings</a>
+                            </div>
                         </div>
                     </div>
-                    <div class="category">
-                        <div class="category-title">
-                            <h3>Others</h3>
+                    <div class="profile">
+                        <div class="profile-left">
+                            <img src="../resources/images/logo-icon.png">
                         </div>
-                        <div class="category-items">
-                            <a href="#"><i class="fa-regular fa-gear"></i>Settings</a>
-                            <a href="#"><i class="fa-regular fa-circle-info"></i>Support</a>
+                        <div class="profile-center">
+                            <h4 class="username">Nigga Dick</h4>
+                            <p class="role">Administrator</p>
+                        </div>
+                        <div class="profile-right">
+                            <i class="fa-light fa-circle-chevron-up"></i>
                         </div>
                     </div>
                 </div>
