@@ -33,14 +33,14 @@
             <div class="bottom">
                 <div class="left-pane">
                     <div class="categories">
-                        <div class="category">
+                        <div class="category">  
                             <div class="category-title">
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
                                 <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="#" class="active"><i class="fa-regular fa-circle-dollar"></i>Manage Users</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Leave Report</a>
+                                <a href="#" class="active"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
+                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
                                 <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
                             </div>
                         </div>
@@ -71,11 +71,22 @@
                 <div class="dashboard-content">
                     <div class="content-section">
                         <div class="content-section-title">
-                            <span>Manage Users</span>
+                            <span>Payroll</span>
                             <div class="button-container">
                                 <button>Import</button>
                                 <button>Export</button>
-                                <button>Add Employee</button>
+                                <button onclick="document.getElementById('popup').style.display='block'">Add Paystub</button>
+                            </div>
+                            <div id="popup" class="popup">
+                                <form action="submit.php" method="post">
+                                <label for="name">Name:</label><br>
+                                <input type="text" name="name" id="name"><br><br>
+
+                                <label for="email">Email:</label><br>
+                                <input type="email" name="email" id="email"><br><br>
+
+                                <input type="submit" value="Submit">
+                                </form>
                             </div>
                         </div>
                         <div class="apps-card">

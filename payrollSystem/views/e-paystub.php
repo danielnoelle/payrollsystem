@@ -3,8 +3,8 @@
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/overview.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="../resources/styles/e-paystub.css">
+    <title>History</title>
 </head>
 
 <body>
@@ -38,10 +38,8 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="#" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="e-overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="#"><i class="fa-regular fa-circle-dollar"></i>Paystub</a>
                             </div>
                         </div>
                         <div class="category">
@@ -70,26 +68,44 @@
             <div class="right-pane">
                 <div class="dashboard-content">
                     <div class="content-section">
-                        <div class="content-section-title">Dashboard</div>
+                        <div class="content-section-title">
+                            <span>Paystub</span>
+                            <div class="button-container">
+                                <button>Filter</button>
+                                <button>Export</button>
+                            </div>
+                        </div>
                         <div class="apps-card">
                             <div class="app-card">
-                                <span>Employee Headcount</span>
-                                <div class="app-info">30 Mins ago</div>
-                                <div class="app-card__subtext">50K</div>
-                                <div class="app-card-contents">  
+                                <div class="title-search-container">
+                                <span>All Transactions</span>
+                                <div class="search-filter-container">
+                                    <input type="text" placeholder="Search..">
+                                    <button>Filter</button>
                                 </div>
-                            </div>
-                            <div class="app-card">
-                                <span>Student Attendance</span>
-                                <div class="app-info">30 Mins ago</div>
-                                <div class="app-card__subtext">3000</div>
-                                <div class="app-card-contents">
                                 </div>
+                                <table class="content-table">
+                                <thread>
+                                    <tr>
+                                        <th><i><b>Employee</b></i></th>
+                                        <th><i><b>Hours Worked</b></th>
+                                        <th><i><b>Hourly Rate</b></th>
+                                        <th><i><b>Deduction</b></th>
+                                        <th><i><b>Tax</b></th>
+                                    </tr>
+                                </thread>
+                                <tbody>
+                                    <tr>
+                                        <td>The Rock</td>
+                                        <td>IT Department</td>
+                                        <td>Senior Developer</td>
+                                        <td>I don't know</td>
+                                        <td>I don't know</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                             </div>
-                            <div class="large-app-card">
-                                <span>Demographics</span>
                             </div>
-                            
                         </div>
                     </div>
                 </div>

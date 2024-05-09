@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/overview.css">
+    <link rel="stylesheet" href="../resources/styles/e-overview.css">
     <title>Dashboard</title>
 </head>
 
@@ -39,9 +39,7 @@
                             </div>
                             <div class="category-items">
                                 <a href="#" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="e-paystub.php"><i class="fa-regular fa-circle-dollar"></i>Paystub</a>
                             </div>
                         </div>
                         <div class="category">

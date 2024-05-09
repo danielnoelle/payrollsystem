@@ -38,10 +38,10 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Manage Users</a>
-                                <a href="#"><i class="fa-light fa-user-group"></i>Leave Report</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
+                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
+                                <a href="#" class="active"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
                             </div>
                         </div>
                         <div class="category">
