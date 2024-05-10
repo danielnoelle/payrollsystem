@@ -24,12 +24,27 @@
             </div>
             <form id="form" action="" method="post">
                 <div class="input field">
-                    <input type="email" name="email" id="email" placeholder="Enter your email" required>
-                    <i class="fa-light fa-envelope"></i>
+                    <label for="email">Email <span>*</span></label>
+                    <div class="input-case">
+                        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                        <i class="fa-light fa-envelope"></i>
+                    </div>
                 </div>
                 <div class="input field">
-                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
-                    <i class="fa-light fa-lock"></i>
+                    <label for="password">Password <span>*</span></label>
+                    <div class="input-case">
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                        <i class="fa-light fa-lock"></i>
+                    </div>
+                </div>
+                <div class="input role">
+                    <label>Role <span>*</span></label>
+                    <div class="roles">
+                        <input type="radio" name="role" id="admin" value="admin">
+                        <label for="admin">Admin</label>
+                        <input type="radio" name="role" id="employee" value="employee">
+                        <label for="employee">Employee</label>
+                    </div>
                 </div>
                 <div class="input submit" id="submitButton">
                     <input type="submit" value="Login" onclick="prepareDashboard()">
@@ -37,7 +52,7 @@
                 </div>
             </form>
             <div class="no-account">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <p>Don't have an account? <a href="../views/signup.php">Sign up</a></p>
             </div>
         </div>
     </div>
