@@ -38,10 +38,10 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Manage Users</a>
-                                <a href="#"><i class="fa-light fa-user-group"></i>Leave Report</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
+                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
+                                <a href="#" class="active"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
                             </div>
                         </div>
                         <div class="category">
@@ -54,18 +54,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile">
-                        <div class="profile-left">
-                            <img src="../resources/images/logo-icon.png">
-                        </div>
-                        <div class="profile-center">
-                            <h4 class="username">Nigga Dick</h4>
+                        <div class="profile-section">
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <h4 class="username">John Doe</h4>
                             <p class="role">Administrator</p>
-                        </div>
-                        <div class="profile-right">
-                            <i class="fa-light fa-circle-chevron-up"></i>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
+                    <div class="trademark">@2024 PayStation</div>
+                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
@@ -73,18 +71,14 @@
                         <div class="content-section-title">
                             <span>History</span>
                             <div class="button-container">
-                                <button>Filter</button>
-                                <button>Export</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="apps-card">
                             <div class="app-card">
                                 <div class="title-search-container">
-                                <span>Team Members</span>
-                                <div class="search-filter-container">
-                                    <input type="text" placeholder="Search..">
-                                    <button>Filter</button>
-                                </div>
+                                <span>All Transactions</span>
                                 </div>
                                 <table class="content-table">
                                 <thread>

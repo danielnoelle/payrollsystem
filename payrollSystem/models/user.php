@@ -17,7 +17,6 @@ class User
     private $city;
     private $province;
     private $country;
-    private $postalCode;
 
 
 
@@ -182,25 +181,9 @@ class User
         return $this;
     }
 
-    public function constructAdmin($email, $password, $firstName, $lastName, $gender, $birthdate, $contactNumber, $role, $street, $city, $province, $country, $postalCode)
+    public function __construct($email, $password, $firstName, $lastName, $gender, $birthdate, $contactNumber, $role, $position, $hoursWorked, $street, $city, $province, $country)
     {
-        $this->email = $email;
-        $this->password = $password;
-        $this->firstName = $firstName;
-        $this->lastName = $lastName;
-        $this->gender = $gender;
-        $this->birthdate = $birthdate;
-        $this->contactNumber = $contactNumber;
-        $this->role = $role;
-        $this->street = $street;
-        $this->city = $city;
-        $this->province = $province;
-        $this->country = $country;
-        $this->postalCode = $postalCode;
-    }
 
-    public function constructEmployee($email, $password, $firstName, $lastName, $gender, $birthdate, $contactNumber, $role, $position, $hoursWorked, $street, $city, $province, $country, $postalCode)
-    {
         $this->email = $email;
         $this->password = $password;
         $this->firstName = $firstName;
@@ -215,12 +198,12 @@ class User
         $this->city = $city;
         $this->province = $province;
         $this->country = $country;
-        $this->postalCode = $postalCode;
+        
     }
 
     /**
      * Get the value of password
-     */
+     */ 
     public function getPassword()
     {
         return $this->password;
@@ -230,7 +213,7 @@ class User
      * Set the value of password
      *
      * @return  self
-     */
+     */ 
     public function setPassword($password)
     {
         $this->password = $password;
@@ -240,7 +223,7 @@ class User
 
     /**
      * Get the value of hoursWorked
-     */
+     */ 
     public function getHoursWorked()
     {
         return $this->hoursWorked;
@@ -250,7 +233,7 @@ class User
      * Set the value of hoursWorked
      *
      * @return  self
-     */
+     */ 
     public function setHoursWorked($hoursWorked)
     {
         $this->hoursWorked = $hoursWorked;
@@ -260,7 +243,7 @@ class User
 
     /**
      * Get the value of street
-     */
+     */ 
     public function getStreet()
     {
         return $this->street;
@@ -270,7 +253,7 @@ class User
      * Set the value of street
      *
      * @return  self
-     */
+     */ 
     public function setStreet($street)
     {
         $this->street = $street;
@@ -280,7 +263,7 @@ class User
 
     /**
      * Get the value of city
-     */
+     */ 
     public function getCity()
     {
         return $this->city;
@@ -290,7 +273,7 @@ class User
      * Set the value of city
      *
      * @return  self
-     */
+     */ 
     public function setCity($city)
     {
         $this->city = $city;
@@ -300,7 +283,7 @@ class User
 
     /**
      * Get the value of province
-     */
+     */ 
     public function getProvince()
     {
         return $this->province;
@@ -310,7 +293,7 @@ class User
      * Set the value of province
      *
      * @return  self
-     */
+     */ 
     public function setProvince($province)
     {
         $this->province = $province;
@@ -320,7 +303,7 @@ class User
 
     /**
      * Get the value of country
-     */
+     */ 
     public function getCountry()
     {
         return $this->country;
@@ -330,30 +313,10 @@ class User
      * Set the value of country
      *
      * @return  self
-     */
+     */ 
     public function setCountry($country)
     {
         $this->country = $country;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of postalCode
-     */ 
-    public function getPostalCode()
-    {
-        return $this->postalCode;
-    }
-
-    /**
-     * Set the value of postalCode
-     *
-     * @return  self
-     */ 
-    public function setPostalCode($postalCode)
-    {
-        $this->postalCode = $postalCode;
 
         return $this;
     }

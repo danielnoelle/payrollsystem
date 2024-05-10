@@ -281,27 +281,26 @@ font-size:36px;
 margin-bottom: 14px;
 font-family: 'Nunito Sans', sans-serif;
 font-weight: 600;
-display: flex;
-align-items: center;
-justify-content: space-between;
 position: relative;
 }
 
 .button-container {
     display: flex;
     gap: 10px;
-    position: relative;
+    position: absolute;
     right: 50px;
+    top:0;
 }
 
 .button-container button {
-    padding: 8px 12px;
+    padding: 6px 15px;
     background: rgba(33, 33, 33, 0.4);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
+    left: 40px;
   }
 
 .apps-card {
@@ -383,13 +382,15 @@ position: relative;
   
   .search-filter-container input[type="text"] {
     padding: 8px;
+    width: 225px;
     background: rgba(33, 33, 33, 0.4);
     border-radius: 4px; 
     margin-right: 10px;
+    font-family: 'Poppins',sans-serif;
   }
   
   .search-filter-container button {
-    padding: 8px 12px;
+    padding: 8px 15px;
     background: rgba(33, 33, 33, 0.4);
     color: white;
     border: none;
@@ -431,6 +432,122 @@ th {
     padding: 15px;
     text-align: center;
 }
+
+.dropbtn {
+  background-color: rgba(33, 33, 33, 0.4);
+  color: white;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(33, 33, 33, 0.8);
+  min-width: 75px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 4px;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(12, 15, 25, 0.3);
+  width:80px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  width:40px;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: rgba(12, 15, 25, 0.3);
+}
+
+.profile-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2vh;
+}
+
+.profile-card {
+  display: flex;
+  align-items: center;
+  background-color: rgba(33,33,33, 0.4);
+  border-radius: 0.75vw;
+  padding: 1vh 1vw;
+  margin-bottom: 1vh;
+  width: 100%;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.username {
+  font-family: var(--header-text-font);
+  font-size: 0.9vw;
+  font-style: italic;
+  margin-bottom: 0.2vw;
+  color: white;
+}
+
+.profile-info h4{
+font-family: 'poppins', sans-serif;
+font-size: 20px;
+}
+
+.profile-info h4{
+font-family: 'poppins', sans-serif;
+font-size: 20px;
+}
+
+.role {
+  font-family: var(--body-text-font);
+  font-size: 0.8vw;
+  color: #ccc;
+  margin-bottom: 0.5vw;
+}
+
+.sign-out-btn {
+  padding: 0.5vw 1vw;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8vw;
+}
+
+.trademark {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8vw;
+  position: absolute;
+  bottom: 25px;
+  color: #ccc;
+  text-align: center;
+  font-weight: bold;
+}
+
 
   @media screen and (max-width: 1110px) {
     .app-card {

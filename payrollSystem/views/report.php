@@ -33,14 +33,14 @@
             <div class="bottom">
                 <div class="left-pane">
                     <div class="categories">
-                        <div class="category">
+                        <div class="category">  
                             <div class="category-title">
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="#"><i class="fa-regular fa-circle-dollar"></i>Manage Users</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Leave Report</a>
+                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
+                                <a href="#" class="active"><i class="fa-light fa-user-group"></i>Employees</a>
                                 <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
                             </div>
                         </div>
@@ -54,37 +54,83 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile">
-                        <div class="profile-left">
-                            <img src="../resources/images/logo-icon.png">
-                        </div>
-                        <div class="profile-center">
-                            <h4 class="username">Nigga Dick</h4>
+                    <div class="profile-section">
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <h4 class="username">John Doe</h4>
                             <p class="role">Administrator</p>
-                        </div>
-                        <div class="profile-right">
-                            <i class="fa-light fa-circle-chevron-up"></i>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
+                    <div class="trademark">@2024 PayStation</div>
+                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
                     <div class="content-section">
                         <div class="content-section-title">
-                            <span>Reports</span>
+                            <span>Employees</span>
                             <div class="button-container">
-                                <button>Import</button>
-                                <button>Export</button>
-                                <button>Add Employee</button>
+                                <button id="open-popup">Add Employees</button>
                             </div>
-                        </div>
+                            <div id="popup" class="popup">
+                                <div class="close-btn">&times;</div>
+                                <div class="popup-content">
+                                <div class="popup-text">Personal Information</div>    
+                                <div class="form">
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="fullname">Full Name:</label>
+                                        <input type="text" id="fName" placeholder="Enter full name">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="email">Hourly Rate</label>
+                                        <input type="text" id="email" placeholder="Enter hourly rate">
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="password">Hours Worked</label>
+                                        <input type="password" id="password" placeholder="Enter hours worked">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="password">Salary</label>
+                                        <input type="password" id="password" placeholder="Enter total salary">
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="popup-text">Contributions<br></div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="deductions">Deductions</label>
+                                        <input type="text" id="deduc" placeholder="Enter value">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="bonuses">Bonuses</label>
+                                        <input type="text" id="bonus" placeholder="Enter value">
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="password">Insurance</label>
+                                        <input type="password" id="password" placeholder="Enter value">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="date">Issued Date:</label>
+                                        <input type="date" id="date" placeholder="Enter your password">
+                                    </div>
+                                    </div>
+                                        <button class="btn-reg">Register</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         <div class="apps-card">
                             <div class="app-card">
                                 <div class="title-search-container">
                                 <span>Team Members</span>
                                 <div class="search-filter-container">
-                                    <input type="text" placeholder="Search..">
-                                    <button>Filter</button>
                                 </div>
                                 </div>
                                 <table class="content-table">
@@ -116,5 +162,17 @@
 </div>
 </div>
 </body>
+<script>
+    const openPopupButton = document.getElementById("open-popup");
+    const closePopupButton = document.querySelector(".close-btn");
+    const popup = document.querySelector(".popup");
 
+    openPopupButton.addEventListener("click", () => {
+    popup.style.display = "block";
+    });
+
+    closePopupButton.addEventListener("click", () => {
+    popup.style.display = "none";
+    });
+  </script>
 </html>

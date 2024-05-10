@@ -54,16 +54,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile-section">
-                    <div class="profile-card">
-                        <div class="profile-info">
-                            <h4 class="username">John Doe</h4>
+                    <div class="profile">
+                        <div class="profile-left">
+                            <img src="../resources/images/logo-icon.png">
+                        </div>
+                        <div class="profile-center">
+                            <h4 class="username">Nigga Dick</h4>
                             <p class="role">Administrator</p>
-                            <button class="sign-out-btn">Sign Out</button>
+                        </div>
+                        <div class="profile-right">
+                            <i class="fa-light fa-circle-chevron-up"></i>
                         </div>
                     </div>
-                    <div class="trademark">@2024 PayStation</div>
-                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">

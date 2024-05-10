@@ -90,21 +90,11 @@ nav {
     padding-top: 0.4vw;
 }
 
-.search-container{
-    display: inline-block;
-    position: relative;
-}
-
 .right-nav h2 {
     font-family: var(--header-text-font);
     color: white;
     font-size: 1vw;
     font-weight: 500;
-}
-
-.user-info-container{
-    display: flex;
-    align-items: center;
 }
 
 .profile-icon {
@@ -293,8 +283,26 @@ font-family: 'Nunito Sans', sans-serif;
 font-weight: 600;
 display: flex;
 align-items: center;
-justify-content: start;
+justify-content: space-between;
+position: relative;
 }
+
+.button-container {
+    display: flex;
+    gap: 10px;
+    position: relative;
+    right: 50px;
+}
+
+.button-container button {
+    padding: 10px 12px;
+    background: rgba(33, 33, 33, 0.4);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+  }
 
 .apps-card {
     display: flex;
@@ -307,7 +315,6 @@ justify-content: start;
 .app-card {
     display: flex;
     flex-direction: column;
-    width: 100%;
     font-size: 16px;
     background-color: rgba(33, 33, 33, 0.4);
     border-radius: 14px;
@@ -315,8 +322,9 @@ justify-content: start;
     padding: 20px;
     cursor: pointer;
     width: 350px;
-    height: 199px;
     transition: 0.3 ease;
+    width: calc(2 * 420px + 20px);
+    height: calc(2 * 260px + 30px);
   }
 
   .app-card span {
@@ -325,11 +333,6 @@ justify-content: start;
     font-weight: bold; 
     font-size: 18px;
 }
-  
-  .app-card:hover {
-    transform: scale(1.02);
-    background-color: rgba(33, 33, 33, 0.8);
-  }
 
   .app-card svg {
     width: 28px;
@@ -365,112 +368,69 @@ justify-content: start;
     color: white;
   }
 
-  .app-card-contents {
+  .app-card-buttons {
     display: flex;
     align-items: center;
     margin-left: auto;
     margin-top: 16px;
   }
 
-  .large-app-card {
+  .search-filter-container {
     display: flex;
-    flex-direction: column;
-    width: calc(33.3% - 20px);
-    font-size: 16px;
-    background-color: rgba(33, 33, 33, 0.4);
-    border-radius: 14px;
-    border: 1px solid var(--theme-bg-color);
-    padding: 20px;
-    cursor: pointer;
-    width: calc(2 * 350px + 20px);
-    height: 250px;
-    margin-top: 30px;
-    transition: 0.3 ease;
-}
-
-.large-app-card:hover {
-    transform: scale(1.02);
-    background-color: rgba(33, 33, 33, 0.8);
+    align-items: center;
+    margin-top: 10px;
   }
-
-.large-app-card span {
-    color: white;
-    font-family: 'Poppins', sans-serif; 
-    font-weight: bold; 
-    font-size: 18px;
-}
-
-.profile-section {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 2vh;
-}
-
-  .profile-card {
-    display: flex;
-    align-items: center;
-    background-color: rgba(33,33,33, 0.4);
-    border-radius: 0.75vw;
-    padding: 1vh 1vw;
-    margin-bottom: 1vh;
-    width: 100%;
+  
+  .search-filter-container input[type="text"] {
+    padding: 8px;
+    background: rgba(33, 33, 33, 0.4);
+    border-radius: 4px; 
+    margin-right: 10px;
   }
-
-.profile-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 1;
-}
-
-.username {
-    font-family: var(--header-text-font);
-    font-size: 0.9vw;
-    font-style: italic;
-    margin-bottom: 0.2vw;
-    color: white;
-}
-
-.profile-info h4{
-  font-family: 'poppins', sans-serif;
-  font-size: 20px;
-}
-
-.profile-info h4{
-  font-family: 'poppins', sans-serif;
-  font-size: 20px;
-}
-
-.role {
-    font-family: var(--body-text-font);
-    font-size: 0.8vw;
-    color: #ccc;
-    margin-bottom: 0.5vw;
-}
-
-.sign-out-btn {
-    padding: 0.5vw 1vw;
-    background-color: rgba(255, 255, 255, 0.1);
+  
+  .search-filter-container button {
+    padding: 8px 12px;
+    background: rgba(33, 33, 33, 0.4);
     color: white;
     border: none;
-    border-radius: 0.4vw;
+    border-radius: 4px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-    font-size: 0.8vw;
+  }
+
+  .title-search-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+th {
+    border-bottom: 2px solid #ccc;
+    font-weight: 500;
 }
 
-.trademark {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.8vw;
-    position: absolute;
-    bottom: 25px;
-    color: #ccc;
-    text-align: center;
+.content-table{
+    margin-top: 20px;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+}
+
+.content-table tbody tr.active-row {
     font-weight: bold;
+    color: #009879;
 }
 
+.content-table th, td{
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    font-weight: 300;
+    padding: 15px;
+    text-align: center;
+}
 
   @media screen and (max-width: 1110px) {
     .app-card {

@@ -79,7 +79,7 @@ form {
 .input {
     width: 100%;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
     flex-direction: column;
     position: relative;
@@ -94,14 +94,7 @@ form {
     position: relative;
 }
 
-.input-case {
-    width: 100%;
-    height: 6vh;
-    position: relative;
-    margin-top: 1vh;
-}
-
-.input-case input, .input input {
+.input input {
     width: 100%;
     height: 6vh;
     background-color: rgba(21, 21, 21, 0.5);
@@ -121,18 +114,10 @@ form {
     outline: 0;
 }
 
-.input span {
-    color: red;
-    text-shadow: 0 0 1vw rgba(21, 21, 21, 0.5);
-}
-
-.input-case .fa-light {
+.input .fa-light {
     position: absolute;
     color: white;
     left: 1vw;
-    font-size: 1vw;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 .submit i {
@@ -180,30 +165,4 @@ input:-webkit-autofill:active {
 
 .logo img {
     width: 4vw;
-}
-
-.input label {
-    color: white;
-    font-size: 1vw;
-    font-family: var(--body-text-font);
-}
-
-.roles {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.roles input {
-    height: 1vw;
-    width: 1vw;
-    vertical-align: middle;
-    border: 0;
-    outline: 0;
-    margin-right: 0.25vw;
-}
-
-.roles input:nth-child(3) {
-    margin-left: 1vw;
 }

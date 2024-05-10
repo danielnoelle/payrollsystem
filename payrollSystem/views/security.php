@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/settings.css">
+    <link rel="stylesheet" href="../resources/styles/security.css">
     <title>History</title>
 </head>
 
@@ -38,7 +38,7 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
                                 <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
                                 <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
                                 <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
@@ -54,16 +54,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile-section">
-                    <div class="profile-card">
-                        <div class="profile-info">
-                            <h4 class="username">John Doe</h4>
+                    <div class="profile">
+                        <div class="profile-left">
+                            <img src="../resources/images/logo-icon.png">
+                        </div>
+                        <div class="profile-center">
+                            <h4 class="username">Nigga Dick</h4>
                             <p class="role">Administrator</p>
-                            <button class="sign-out-btn">Sign Out</button>
+                        </div>
+                        <div class="profile-right">
+                            <i class="fa-light fa-circle-chevron-up"></i>
                         </div>
                     </div>
-                    <div class="trademark">@2024 PayStation</div>
-                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
@@ -75,8 +77,8 @@
                             <div class="app-card">
                                 <nav class="title-search-container">
                                     <ul>
-                                        <li class="active"><a href="">Edit Profile</a></li>
-                                        <li><a href="security.php">Security</a></li>
+                                        <li><a href="settings.php">Edit Profile</a></li>
+                                        <li class="active"><a href="">Security</a></li>
                                     </ul>
                                 </nav>
                                 <div class="form-section">
@@ -86,43 +88,43 @@
                                 <form>
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" placeholder="Enter First Name">
+                                    <input type="text" id="firstName" name="firstName">
                                 </div>
                                 <div class="form-group">
                                     <label for="lastName">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name">
+                                    <input type="text" id="lastName" name="lastName">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="Enter E-mail">
+                                    <input type="email" id="email" name="email">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" id="password" name="password" placeholder="Enter Password">
+                                    <input type="password" id="password" name="password">
                                 </div>
                                 <div class="form-group">
                                     <label for="birthdate">Birth Date</label>
-                                    <input type="date" id="birthdate" name="birthdate" placeholder="Enter Birthdate">
+                                    <input type="date" id="birthdate" name="birthdate">
                                 </div>
                                 <div class="form-group">
                                     <label for="number">Number</label>
-                                    <input type="text" id="number" name="number" placeholder="Enter Number">
+                                    <input type="text" id="number" name="number">
                                 </div>
                                 <div class="form-group">
                                     <label for="street">Street</label>
-                                    <input type="text" id="street" name="street" placeholder="Enter Street">
+                                    <input type="text" id="street" name="street">
                                 </div>
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <input type="text" id="city" name="city" placeholder="Enter City">
+                                    <input type="text" id="city" name="city">
                                 </div>
                                 <div class="form-group">
                                     <label for="province">Province</label>
-                                    <input type="text" id="province" name="province" placeholder="Enter Province">
+                                    <input type="text" id="province" name="province">
                                 </div>
                                 <div class="form-group">
                                     <label for="country">Country</label>
-                                    <input type="text" id="country" name="country" placeholder="Enter Country">
+                                    <input type="text" id="country" name="country">
                                 </div>
                                 <div class="button-container">
                                     <button type="submit">Save Changes</button>

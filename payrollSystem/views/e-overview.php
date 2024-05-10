@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/overview.css">
+    <link rel="stylesheet" href="../resources/styles/e-overview.css">
     <title>Dashboard</title>
 </head>
 
@@ -39,9 +39,7 @@
                             </div>
                             <div class="category-items">
                                 <a href="#" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="e-paystub.php"><i class="fa-regular fa-circle-dollar"></i>Paystub</a>
                             </div>
                         </div>
                         <div class="category">
@@ -54,16 +52,18 @@
                             </div>
                         </div>
                     </div>
-                    <div class="profile-section">
-                    <div class="profile-card">
-                        <div class="profile-info">
-                            <h4 class="username">John Doe</h4>
+                    <div class="profile">
+                        <div class="profile-left">
+                            <img src="../resources/images/logo-icon.png">
+                        </div>
+                        <div class="profile-center">
+                            <h4 class="username">Nigga Dick</h4>
                             <p class="role">Administrator</p>
-                            <button class="sign-out-btn">Sign Out</button>
+                        </div>
+                        <div class="profile-right">
+                            <i class="fa-light fa-circle-chevron-up"></i>
                         </div>
                     </div>
-                    <div class="trademark">@2024 PayStation</div>
-                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
@@ -78,7 +78,7 @@
                                 </div>
                             </div>
                             <div class="app-card">
-                                <span>Employee Attendance</span>
+                                <span>Student Attendance</span>
                                 <div class="app-info">30 Mins ago</div>
                                 <div class="app-card__subtext">3000</div>
                                 <div class="app-card-contents">
@@ -97,5 +97,5 @@
 </div>
 </div>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+
 </html>
