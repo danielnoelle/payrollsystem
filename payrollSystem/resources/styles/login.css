@@ -124,6 +124,7 @@ form {
     position: absolute;
     color: white;
     z-index: -1;
+    font-size: 1vw;
 }
 
 input:-webkit-autofill,

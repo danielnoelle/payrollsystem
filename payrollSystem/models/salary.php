@@ -6,11 +6,11 @@ class Salary {
     private $taxDeduction;
     private $bonus;
     private $benefits;
-    private $totalSalary;
     private $hourlyRate;
     private $grossSalary;
     private $totalDeduction;
     private $netSalary;
+    private $dateIssued;
 
 
     /**
@@ -73,26 +73,6 @@ class Salary {
     public function setBenefits($benefits)
     {
         $this->benefits = $benefits;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of totalSalary
-     */ 
-    public function getTotalSalary()
-    {
-        return $this->totalSalary;
-    }
-
-    /**
-     * Set the value of totalSalary
-     *
-     * @return  self
-     */ 
-    public function setTotalSalary($totalSalary)
-    {
-        $this->totalSalary = $totalSalary;
 
         return $this;
     }
@@ -193,6 +173,26 @@ class Salary {
     public function setNetSalary($netSalary)
     {
         $this->netSalary = $netSalary;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateIssued
+     */ 
+    public function getDateIssued()
+    {
+        return $this->dateIssued;
+    }
+
+    /**
+     * Set the value of dateIssued
+     *
+     * @return  self
+     */ 
+    public function setDateIssued($dateIssued)
+    {
+        $this->dateIssued = $dateIssued;
 
         return $this;
     }

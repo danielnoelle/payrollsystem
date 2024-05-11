@@ -22,22 +22,28 @@
                 <h1>Welcome back!</h1>
                 <p>Enter your credentials to log back in.</p>
             </div>
-            <form id="form" action="" method="post">
+            <form id="form" action="../controllers/loginValidation.php" method="post">
                 <div class="input field">
-                    <input type="email" name="email" id="email" placeholder="Enter your email" required>
-                    <i class="fa-light fa-envelope"></i>
+                    <label for="email">Email <span>*</span><span>Invalid email. Please try again</span></label>
+                    <div class="input-cont">
+                        <input type="email" name="email" id="email" placeholder="Enter your email" required>
+                        <i class="fa-light fa-envelope"></i>
+                    </div>
                 </div>
                 <div class="input field">
-                    <input type="password" name="password" id="password" placeholder="Enter your password" required>
-                    <i class="fa-light fa-lock"></i>
+                    <label for="password">Password <span>*</span><span>Invalid password. Please try again</span></label>
+                    <div class="input-cont">
+                        <input type="password" name="password" id="password" placeholder="Enter your password" required>
+                        <i class="fa-light fa-lock"></i>
+                    </div>
                 </div>
                 <div class="input submit" id="submitButton">
-                    <input type="submit" value="Login" onclick="prepareDashboard()">
+                    <input type="submit" value="Login">
                     <i class="fa-duotone fa-spinner" id="spinner"></i>
                 </div>
             </form>
             <div class="no-account">
-                <p>Don't have an account? <a href="#">Sign up</a></p>
+                <p>Don't have an account? <a href="signup.php">Sign up</a></p>
             </div>
         </div>
     </div>
