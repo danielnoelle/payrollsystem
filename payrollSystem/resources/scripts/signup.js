@@ -14,3 +14,13 @@ function informErrorToUser(input, span) {
     });
 
 }
+
+function displayErrorPasswordMismatch() {
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Password does not match with the email you provided. Please try again',
+        showConfirmButton: true,
+        confirmButtonText: 'Okay',
+    });
+}

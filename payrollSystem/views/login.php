@@ -1,3 +1,7 @@
+<?php
+require_once('../controllers/loadFunctions.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,6 +9,7 @@
     <?php include_once('../resources/components/head.html'); ?>
     <link rel="stylesheet" href="../resources/styles/login.css">
     <script src="../resources/scripts/login.js" defer></script>
+    <script src="../resources/scripts/signup.js"></script>
     <title>PayStation - Login</title>
 </head>
 
@@ -24,17 +29,19 @@
             </div>
             <form id="form" action="../controllers/loginValidation.php" method="post">
                 <div class="input field">
-                    <label for="email">Email <span>*</span><span>Invalid email. Please try again</span></label>
+                    <label for="email">Email <span>*</span><span class="error-msg" id="emailSpan">Invalid email. Please try again</span></label>
                     <div class="input-cont">
                         <input type="email" name="email" id="email" placeholder="Enter your email" required>
                         <i class="fa-light fa-envelope"></i>
+                        <?php validateInput('email', 'emailSpan', 'email'); ?>
                     </div>
                 </div>
                 <div class="input field">
-                    <label for="password">Password <span>*</span><span>Invalid password. Please try again</span></label>
+                    <label for="password">Password <span>*</span><span class="error-msg" id="passwordSpan">Invalid password. Please try again</span></label>
                     <div class="input-cont">
                         <input type="password" name="password" id="password" placeholder="Enter your password" required>
                         <i class="fa-light fa-lock"></i>
+                        <?php validateInput('password', 'passwordSpan', 'password'); ?>
                     </div>
                 </div>
                 <div class="input submit" id="submitButton">

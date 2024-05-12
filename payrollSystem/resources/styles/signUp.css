@@ -288,7 +288,8 @@ input:-webkit-autofill:active {
 
 .error-msg {
     float: right;
-    text-shadow: 0 0 3vw black;
     visibility: hidden;
-    color: rgb(255, 175, 175);
+    background-color: rgba(21, 21, 21, 0.5);
+    padding: 0.25vw;
+    border-radius: 0.25vw;
 }
