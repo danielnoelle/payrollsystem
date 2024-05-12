@@ -4,7 +4,7 @@
 <head>
     <?php include_once('../resources/components/head.html'); ?>
     <link rel="stylesheet" href="../resources/styles/e-paystub.css">
-    <title>History</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Nigga Denver</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -33,37 +33,36 @@
             <div class="bottom">
                 <div class="left-pane">
                     <div class="categories">
-                        <div class="category">
+                        <div class="category">  
                             <div class="category-title">
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="e-overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="#"><i class="fa-regular fa-circle-dollar"></i>Paystub</a>
+                                <a href="e-overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="#" class="active"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
                             </div>
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                                <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
-                                <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
+                                <a href="e-support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
+                                <a href="e-settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
                             </div>
                         </div>
                     </div>
-                    <div class="profile">
-                        <div class="profile-left">
-                            <img src="../resources/images/logo-icon.png">
-                        </div>
-                        <div class="profile-center">
-                            <h4 class="username">Nigga Dick</h4>
-                            <p class="role">Administrator</p>
-                        </div>
-                        <div class="profile-right">
-                            <i class="fa-light fa-circle-chevron-up"></i>
+                    <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <h4 class="username">Doja Cat</h4>
+                            <p class="role">Employee</p>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
+                    <div class="trademark">@2024 PayStation</div>
+                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
@@ -71,17 +70,81 @@
                         <div class="content-section-title">
                             <span>Paystub</span>
                             <div class="button-container">
-                                <button>Filter</button>
-                                <button>Export</button>
+                                <button>Import</button>
+                                <div class="dropdown">
+                                    <button class="dropbtn">Export</button>
+                                    <div class="dropdown-content">
+                                        <a href="#">CSV</a>
+                                        <a href="#">PDF</a>
+                                    </div>
+                                </div>
+                                <button id="open-popup">Add Payroll</button>
                             </div>
-                        </div>
+                            <div id="popup" class="popup">
+                                <div class="close-btn">&times;</div>
+                                <div class="popup-content">
+                                <div class="popup-text">Payroll Information</div>    
+                                <div class="form">
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="fullname">Full Name:</label>
+                                        <input type="text" id="fName" placeholder="Enter full name">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="email">Hourly Rate</label>
+                                        <input type="text" id="email" placeholder="Enter hourly rate">
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="password">Hours Worked</label>
+                                        <input type="password" id="password" placeholder="Enter hours worked">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="password">Salary</label>
+                                        <input type="password" id="password" placeholder="Enter total salary">
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="deductions">Deductions</label>
+                                        <input type="text" id="deduc" placeholder="Enter value">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="bonuses">Bonuses</label>
+                                        <input type="text" id="bonus" placeholder="Enter value">
+                                    </div>
+                                    </div>
+                                    <div class="form-row">
+                                    <div class="form-element">
+                                        <label for="password">Insurance</label>
+                                        <input type="password" id="password" placeholder="Enter value">
+                                    </div>
+                                    <div class="form-element">
+                                        <label for="date">Issued Date:</label>
+                                        <input type="date" id="date" placeholder="Enter your password">
+                                    </div>
+                                    </div>
+                                    <div class="form-row full-width">
+                                        <button class="btn-reg">Register</button>
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
                         <div class="apps-card">
                             <div class="app-card">
                                 <div class="title-search-container">
-                                <span>All Transactions</span>
+                                <span>Team Members</span>
                                 <div class="search-filter-container">
-                                    <input type="text" placeholder="Search..">
-                                    <button>Filter</button>
+                                    <input type="text" placeholder="Search">
+                                    <div class="dropdown">
+                                    <button class="dropbtn">Filter</button>
+                                    <div class="dropdown-content">
+                                        <a href="#">Time</a>
+                                        <a href="#">Name</a>
+                                        <a href="#">Tag</a>
+                                    </div>
+                                </div>
                                 </div>
                                 </div>
                                 <table class="content-table">
@@ -90,17 +153,15 @@
                                         <th><i><b>Employee</b></i></th>
                                         <th><i><b>Hours Worked</b></th>
                                         <th><i><b>Hourly Rate</b></th>
-                                        <th><i><b>Deduction</b></th>
-                                        <th><i><b>Tax</b></th>
+                                        <th><i><b>Deductions</b></th>
                                     </tr>
                                 </thread>
                                 <tbody>
                                     <tr>
-                                        <td>The Rock</td>
-                                        <td>IT Department</td>
-                                        <td>Senior Developer</td>
-                                        <td>I don't know</td>
-                                        <td>I don't know</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -115,5 +176,17 @@
 </div>
 </div>
 </body>
+<script>
+    const openPopupButton = document.getElementById("open-popup");
+    const closePopupButton = document.querySelector(".close-btn");
+    const popup = document.querySelector(".popup");
 
+    openPopupButton.addEventListener("click", () => {
+    popup.style.display = "block";
+    });
+
+    closePopupButton.addEventListener("click", () => {
+    popup.style.display = "none";
+    });
+  </script>
 </html>

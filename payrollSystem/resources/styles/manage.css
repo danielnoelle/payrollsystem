@@ -111,7 +111,7 @@
     }
 
     .logo img {
-    width: 8vw;
+    width: 11vw;
     }
 
     .profile-icon img {
@@ -193,6 +193,10 @@
 
     .category-items a:hover {
     background-color: rgb(12, 15, 25, 0.3);
+    }
+
+    .category-items a.active i {
+      color: #007bff; 
     }
 
     .active {
@@ -284,7 +288,7 @@
         color: white;
         font-size:36px;
         margin-bottom: 14px;
-        font-family: 'Nunito Sans', sans-serif;
+        font-family: 'Poppins', sans-serif;
         font-weight: 600;
     }
 
@@ -306,6 +310,10 @@
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     left: 40px;
+    }
+
+    .button-container button:hover {
+      background-color: rgba(8, 10, 17, 0.6);
     }
 
     .apps-card {
@@ -391,7 +399,8 @@
     .search-filter-container input[type="text"] {
     padding: 8px;
     background: rgba(33, 33, 33, 0.4);
-    font: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: white;
     border-radius: 4px; 
     margin-right: 10px;
     }
@@ -405,8 +414,12 @@
     border-radius: 4px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
-
+    width: 80px;
     }
+
+    .search-filter-container button:hover{
+    background-color: rgba(8, 10, 17, 0.6);
+    } 
 
     .title-search-container {
     display: flex;
@@ -456,7 +469,6 @@
         -webkit-backdrop-filter: blur(4px);
         z-index: 100;
         max-width: 620px;
-        max-height: 500px;
         border: 1px solid rgba(255, 255, 255, 0.18);
         width: 90%;
       }
@@ -469,8 +481,7 @@
       
       .popup-text {
         text-align: left;
-        margin-bottom: -50px;
-        position: absolute;
+        margin-bottom: 0px;
       }
       
       .form {
@@ -479,7 +490,6 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
-        border-radius: 10px;
       }
       
       .btntext{
@@ -490,22 +500,35 @@
       }
 
       .btn-reg{
+        width: 100%;
+        height: 50px;
         font-family: 'Poppins', sans-serif;
-        height: 40px;
-        justify-content: center;
-        margin-top: 30px;
-        border-radius: 10px;
+        font-size: 20px;
+        margin-top: 5px;
+        font-weight: 700;
       }
+
+      .form-row.full-width {
+        grid-column: 1 / -1;
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .form-row.full-width .popup-text {
+        flex-grow: 1;
+        margin-bottom: 0;
+    }
 
       .form-row{
-        margin-top: 30px;
+        gap: 20px;
       }
-
       .form-element {
         display: flex;
         flex-direction: column;
       }
-
+      
       .close-btn {
         position: absolute;
         top: 20px;
@@ -563,6 +586,7 @@
         padding: 10px;
         border: rgba(33, 33, 33, 0.8);
         border-radius: 3px;
+        font-family: 'Poppins', sans-serif;
       }
       
       .form-element button {
@@ -608,7 +632,7 @@
       }
       
       .dropdown-content a:hover {
-        background-color: rgba(33, 33, 33, 0.8);
+        background-color: rgba(8, 10, 17, 0.6);
       }
       
       .dropdown:hover .dropdown-content {
@@ -622,15 +646,24 @@
         align-items: center;
         margin-bottom: 2vh;
     }
-
+    
       .profile-card {
         display: flex;
         align-items: center;
         background-color: rgba(33,33,33, 0.4);
         border-radius: 0.75vw;
         padding: 1vh 1vw;
-        margin-bottom: 1vh;
+        margin-bottom: 2vh;
         width: 100%;
+      }
+
+      .profile-picture {
+        max-width: 180px;
+        max-height: 180px;
+        width: auto;
+        height: auto;
+        border-radius: 50%;
+        margin-bottom: -15px;
       }
     
     .profile-info {
@@ -657,7 +690,7 @@
       font-family: 'poppins', sans-serif;
       font-size: 20px;
     }
-
+    
     .role {
         font-family: var(--body-text-font);
         font-size: 0.8vw;
@@ -667,7 +700,7 @@
     
     .sign-out-btn {
         padding: 0.5vw 1vw;
-        background-color: rgba(255, 255, 255, 0.1);
+        background-color: #007bff;
         color: white;
         border: none;
         border-radius: 0.4vw;
@@ -686,9 +719,9 @@
         font-weight: bold;
     }
 
-    #open-popup{
-      margin-left: 140px;
-    }
+    .others{
+      margin-top: 3.5px;
+  }
 
     @media screen and (max-width: 1110px) {
     .app-card {

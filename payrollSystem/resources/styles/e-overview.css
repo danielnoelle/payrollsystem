@@ -121,7 +121,7 @@ nav {
 }
 
 .logo img {
-    width: 8vw;
+    width: 11vw;
 }
 
 .profile-icon img {
@@ -204,6 +204,10 @@ nav {
 .category-items a:hover {
     background-color: rgb(12, 15, 25, 0.3);
 }
+
+.category-items a.active i {
+    color: #007bff; 
+  }
 
 .active {
     background-color: rgb(12, 15, 25, 0.3);
@@ -289,7 +293,7 @@ flex-direction: column;
 color: white;
 font-size:36px;
 margin-bottom: 14px;
-font-family: 'Nunito Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
 font-weight: 600;
 display: flex;
 align-items: center;
@@ -398,6 +402,100 @@ justify-content: start;
     font-family: 'Poppins', sans-serif; 
     font-weight: bold; 
     font-size: 18px;
+}
+
+.profile-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2vh;
+}
+
+  .profile-card {
+    display: flex;
+    align-items: center;
+    background-color: rgba(33,33,33, 0.4);
+    border-radius: 0.75vw;
+    padding: 1vh 1vw;
+    margin-bottom: 2vh;
+    width: 100%;
+  }
+
+  .profile-picture {
+    max-width: 180px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: -15px;
+  }
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.username {
+    font-family: var(--header-text-font);
+    font-size: 0.9vw;
+    font-style: italic;
+    margin-bottom: 0.2vw;
+    color: white;
+}
+
+.profile-info h4{
+  font-family: 'poppins', sans-serif;
+  font-size: 20px;
+}
+
+.profile-info h4{
+  font-family: 'poppins', sans-serif;
+  font-size: 20px;
+}
+
+.role {
+    font-family: var(--body-text-font);
+    font-size: 0.8vw;
+    color: #ccc;
+    margin-bottom: 0.5vw;
+}
+
+.sign-out-btn {
+    padding: 0.5vw 1vw;
+    background-color:#007bff;
+    color: white;
+    border: none;
+    border-radius: 0.4vw;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sign-out-btn:hover::before {
+  content: url(../images/);
+  font-weight: 900;
+  transition: 0.3s ease;
+  margin-right: 0.5vw;
+}
+
+.trademark {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8vw;
+    position: absolute;
+    bottom: 25px;
+    color: #ccc;
+    text-align: center;
+    font-weight: bold;
+}
+.others{
+    margin-top: 3.5px;
 }
 
   @media screen and (max-width: 1110px) {

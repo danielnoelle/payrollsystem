@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Nigga Denver</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -44,26 +44,25 @@
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                                <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
-                                <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
+                                <a href="e-support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
+                                <a href="e-settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
                             </div>
                         </div>
                     </div>
-                    <div class="profile">
-                        <div class="profile-left">
-                            <img src="../resources/images/logo-icon.png">
-                        </div>
-                        <div class="profile-center">
-                            <h4 class="username">Nigga Dick</h4>
-                            <p class="role">Administrator</p>
-                        </div>
-                        <div class="profile-right">
-                            <i class="fa-light fa-circle-chevron-up"></i>
+                    <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <h4 class="username">Doja Cat</h4>
+                            <p class="role">Employee</p>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
+                    <div class="trademark">@2024 PayStation</div>
+                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
@@ -78,7 +77,7 @@
                                 </div>
                             </div>
                             <div class="app-card">
-                                <span>Student Attendance</span>
+                                <span>Employee Attendance</span>
                                 <div class="app-info">30 Mins ago</div>
                                 <div class="app-card__subtext">3000</div>
                                 <div class="app-card-contents">
@@ -97,5 +96,5 @@
 </div>
 </div>
 </body>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 </html>

@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Nigga Denver</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -46,15 +46,16 @@
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                            <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
                                 <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="#"><i class="fa-regular fa-gear"></i>Settings</a>
+                                <a href="#" class="active"><i class="fa-regular fa-gear"></i>Settings</a>
                             </div>
                         </div>
                     </div>
                     <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
                     <div class="profile-card">
                         <div class="profile-info">
                             <h4 class="username">John Doe</h4>

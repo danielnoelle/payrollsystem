@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Nigga Denver</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                                <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
                                 <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
@@ -55,6 +55,7 @@
                         </div>
                     </div>
                     <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
                     <div class="profile-card">
                         <div class="profile-info">
                             <h4 class="username">John Doe</h4>
@@ -71,7 +72,9 @@
                         <div class="content-section-title">
                             <span>Payroll</span>
                             <div class="button-container">
+                                <button>Import</button>
                                 <div class="dropdown">
+                                    <button class="dropbtn">Export</button>
                                     <div class="dropdown-content">
                                         <a href="#">CSV</a>
                                         <a href="#">PDF</a>
@@ -82,7 +85,7 @@
                             <div id="popup" class="popup">
                                 <div class="close-btn">&times;</div>
                                 <div class="popup-content">
-                                <div class="popup-text">Personal Information</div>    
+                                <div class="popup-text">Payroll Information</div>    
                                 <div class="form">
                                     <div class="form-row">
                                     <div class="form-element">
@@ -100,23 +103,23 @@
                                         <input type="password" id="password" placeholder="Enter hours worked">
                                     </div>
                                     <div class="form-element">
-                                        <label for="password">Days Worked</label>
-                                        <input type="password" id="password" placeholder="Enter days worked">
+                                        <label for="password">Salary</label>
+                                        <input type="password" id="password" placeholder="Enter total salary">
                                     </div>
                                     </div>
                                     <div class="form-row">
                                     <div class="form-element">
-                                        <label for="deductions">Tax Deductions</label>
+                                        <label for="deductions">Deductions</label>
                                         <input type="text" id="deduc" placeholder="Enter value">
                                     </div>
                                     <div class="form-element">
-                                        <label for="bonuses">Benefits Deduction</label>
+                                        <label for="bonuses">Bonuses</label>
                                         <input type="text" id="bonus" placeholder="Enter value">
                                     </div>
                                     </div>
                                     <div class="form-row">
                                     <div class="form-element">
-                                        <label for="password">Other Deductions</label>
+                                        <label for="password">Insurance</label>
                                         <input type="password" id="password" placeholder="Enter value">
                                     </div>
                                     <div class="form-element">
@@ -124,34 +127,43 @@
                                         <input type="date" id="date" placeholder="Enter your password">
                                     </div>
                                     </div>
-                                        
+                                    <div class="form-row full-width">
+                                        <button class="btn-reg">Register</button>
                                     </div>
-                                    <button class="btn-reg">Register</button>
                                     </div>
                                 </div>
                             </div>
                         <div class="apps-card">
                             <div class="app-card">
                                 <div class="title-search-container">
-                                <span>Transactions</span>
-                                <div class="search-filter-container">  
+                                <span>Team Members</span>
+                                <div class="search-filter-container">
+                                    <input type="text" placeholder="Search">
+                                    <div class="dropdown">
+                                    <button class="dropbtn">Filter</button>
+                                    <div class="dropdown-content">
+                                        <a href="#">Time</a>
+                                        <a href="#">Name</a>
+                                        <a href="#">Tag</a>
+                                    </div>
+                                </div>
                                 </div>
                                 </div>
                                 <table class="content-table">
                                 <thread>
                                     <tr>
-                                        <th><i><b>Name</b></i></th>
-                                        <th><i><b>Department</b></th>
-                                        <th><i><b>Job Title</b></th>
-                                        <th><i><b>Employment Type</b></th>
+                                        <th><i><b>Employee</b></i></th>
+                                        <th><i><b>Hours Worked</b></th>
+                                        <th><i><b>Hourly Rate</b></th>
+                                        <th><i><b>Deductions</b></th>
                                     </tr>
                                 </thread>
                                 <tbody>
                                     <tr>
-                                        <td>The Rock</td>
-                                        <td>IT Department</td>
-                                        <td>Senior Developer</td>
-                                        <td>I don't know</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
                                     </tr>
                                 </tbody>
                             </table>

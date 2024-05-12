@@ -121,7 +121,7 @@ nav {
 }
 
 .logo img {
-    width: 8vw;
+    width: 11vw;
 }
 
 .profile-icon img {
@@ -204,6 +204,10 @@ nav {
 .category-items a:hover {
     background-color: rgb(12, 15, 25, 0.3);
 }
+
+.category-items a.active i {
+    color: #007bff; 
+  }
 
 .active {
     background-color: rgb(12, 15, 25, 0.3);
@@ -289,7 +293,7 @@ flex-direction: column;
 color: white;
 font-size:36px;
 margin-bottom: 14px;
-font-family: 'Nunito Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
 font-weight: 600;
 display: flex;
 align-items: center;
@@ -414,8 +418,17 @@ justify-content: start;
     background-color: rgba(33,33,33, 0.4);
     border-radius: 0.75vw;
     padding: 1vh 1vw;
-    margin-bottom: 1vh;
+    margin-bottom: 2vh;
     width: 100%;
+  }
+
+  .profile-picture {
+    max-width: 180px;
+    max-height: 180px;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    margin-bottom: -15px;
   }
 
 .profile-info {
@@ -452,13 +465,24 @@ justify-content: start;
 
 .sign-out-btn {
     padding: 0.5vw 1vw;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color:#007bff;
     color: white;
     border: none;
     border-radius: 0.4vw;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     font-size: 0.8vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.sign-out-btn:hover::before {
+  content: url(../images/);
+  font-weight: 900;
+  transition: 0.3s ease;
+  margin-right: 0.5vw;
 }
 
 .trademark {
@@ -470,7 +494,9 @@ justify-content: start;
     text-align: center;
     font-weight: bold;
 }
-
+.others{
+    margin-top: 3.5px;
+}
 
   @media screen and (max-width: 1110px) {
     .app-card {
