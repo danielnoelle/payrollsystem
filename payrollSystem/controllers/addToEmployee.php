@@ -26,7 +26,10 @@ $isNotEmpty = !empty($hoursWorked) && !empty($daysWorked) && !empty($hourlyRate)
 
 if ($isNotEmpty) {
 
+    $database = new Database();
+
 } else {
     $_SESSION['errorMessage'] = "There are errors in the form you submitted. Please try again";
     include_once('../dialogs/loginError.php');
 }
+

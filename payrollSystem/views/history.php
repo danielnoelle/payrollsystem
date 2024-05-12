@@ -78,7 +78,7 @@
                                         <span>Payroll History</span>
                                     </div>
                                     <table class="content-table">
-                                        <thread>
+                                        <thead>
                                             <tr>
                                                 <th><i><b>Name</b></i></th>
                                                 <th><i><b>Hours Worked</b></th>
@@ -91,7 +91,7 @@
                                                 <th><i><b>Net Salary</b></i></th>
                                                 <th><i><b>Issued Date</b></i></th>
                                             </tr>
-                                        </thread>
+                                        </thead>
                                         <tbody>
                                             <tr>
 

@@ -78,7 +78,7 @@ $tax = 0.15;
                     <div class="dashboard-content">
                         <div class="content-section">
                             <div class="content-section-title">
-                                <span>Employees</span>
+                                <span>Payroll</span>
                                 <div class="button-container">
                                     <button id="open-popup">Add Employees</button>
                                 </div>
@@ -90,33 +90,35 @@ $tax = 0.15;
                                             <div class="form-row">
                                                 <div class="form-element">
                                                     <label for="name">Full Name:</label>
-                                                    <select name="name" id="name">
-                                                        <option value="" style="display: none;">Select Employee</option>
-                                                        <?php
-                                                        try {
+                                                    <?php
+                                                    try {
 
-                                                            $database = new Database();
-                                                            $conn = $database->getConnection();
+                                                        $database = new Database();
+                                                        $conn = $database->getConnection();
 
-                                                            $query = "SELECT CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) AS employee_name 
+                                                        $query = "SELECT CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) as employee_name
                                                                       FROM credentials c 
                                                                       INNER JOIN users u ON u.user_id = c.user_id 
-                                                                      WHERE u.user_role = 1";
-                                                            $stmt = $conn->query($query);
+                                                                      WHERE u.role_id = 1";
+                                                        $stmt = $conn->query($query);
 
-                                                            if ($stmt->rowCount() > 0) {
-                                                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                                                                    $employeeName = $row['employee_name'];
-                                                                    echo "<option value=\"$employeeName\">$employeeName</option>";
-                                                                }
-                                                            } else {
-                                                                echo "<option value=''>No employees found</option>";
+                                                        echo "<select name=\"name\" id=\"name\">";
+                                                        echo "<option value=\"\" style=\"display: none;\">Select Employee</option>";
+
+                                                        if ($stmt->rowCount() > 0) {
+                                                            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                                $employeeName = $row['employee_name'];
+                                                                echo "<option value=\"$employeeName\">$employeeName</option>";
                                                             }
-                                                        } catch (PDOException $e) {
-                                                            echo "PDOException: " . $e->getMessage();
+                                                        } else {
+                                                            echo "<option value=''>No employees found</option>";
                                                         }
-                                                        ?>
-                                                    </select>
+
+                                                        echo "</select>";
+                                                    } catch (PDOException $e) {
+                                                        echo "PDOException: " . $e->getMessage();
+                                                    }
+                                                    ?>
                                                 </div>
                                                 <div class="form-element">
                                                     <label for="hourlyRate">Hourly Rate</label>
@@ -177,14 +179,20 @@ $tax = 0.15;
                                         </div>
                                     </div>
                                     <table class="content-table">
-                                        <thread>
+                                        <thead>
                                             <tr>
                                                 <th><i><b>Name</b></i></th>
                                                 <th><i><b>Hours Worked</b></th>
                                                 <th><i><b>Hourly Rate</b></th>
                                                 <th><i><b>Days Worked</b></th>
+                                                <th><i><b>Tax</b></i></th>
+                                                <th><i><b>Bonus</b></i></th>
+                                                <th><i><b>Benefits</b></i></th>
+                                                <th><i><b>Gross Salary</b></i></th>
+                                                <th><i><b>Net Salary</b></i></th>
+                                                <th><i><b>Issued Date</b></i></th>
                                             </tr>
-                                        </thread>
+                                        </thead>
                                         <tbody>
                                             <tr>
 
