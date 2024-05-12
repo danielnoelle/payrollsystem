@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Company Name</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -46,7 +46,7 @@
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                                <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
                                 <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
@@ -54,53 +54,51 @@
                             </div>
                         </div>
                     </div>
-                        <div class="profile-section">
-                    <div class="profile-card">
-                        <div class="profile-info">
-                            <h4 class="username">John Doe</h4>
-                            <p class="role">Administrator</p>
-                            <button class="sign-out-btn onclick="location.href = 'login.php'>Sign Out</button>
+                    <div class="profile-section">
+                        <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
+                        <div class="profile-card">
+                            <div class="profile-info">
+                                <h4 class="username">John Doe</h4>
+                                <p class="role">Administrator</p>
+                                <button class="sign-out-btn">Sign Out</button>
+                            </div>
                         </div>
+                        <div class="trademark">@2024 PayStation</div>
                     </div>
-                    <div class="trademark">@2024 PayStation</div>
                 </div>
-                </div>
-            <div class="right-pane">
-                <div class="dashboard-content">
-                    <div class="content-section">
-                        <div class="content-section-title">
-                            <span>History</span>
-                            <div class="button-container">
+                <div class="right-pane">
+                    <div class="dashboard-content">
+                        <div class="content-section">
+                            <div class="content-section-title">
+                                <span>History</span>
+                            </div>
+                            <div class="apps-card">
+                                <div class="app-card">
+                                    <div class="title-search-container">
+                                        <span>Payroll History</span>
                                     </div>
+                                    <table class="content-table">
+                                        <thread>
+                                            <tr>
+                                                <th><i><b>Name</b></i></th>
+                                                <th><i><b>Hours Worked</b></th>
+                                                <th><i><b>Hourly Rate</b></th>
+                                                <th><i><b>Days Worked</b></th>
+                                                <th><i><b>Tax</b></i></th>
+                                                <th><i><b>Bonus</b></i></th>
+                                                <th><i><b>Benefits</b></i></th>
+                                                <th><i><b>Gross Salary</b></i></th>
+                                                <th><i><b>Net Salary</b></i></th>
+                                                <th><i><b>Issued Date</b></i></th>
+                                            </tr>
+                                        </thread>
+                                        <tbody>
+                                            <tr>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="apps-card">
-                            <div class="app-card">
-                                <div class="title-search-container">
-                                <span>All Transactions</span>
-                                </div>
-                                <table class="content-table">
-                                <thread>
-                                    <tr>
-                                        <th><i><b>Employee</b></i></th>
-                                        <th><i><b>Hours Worked</b></th>
-                                        <th><i><b>Hourly Rate</b></th>
-                                        <th><i><b>Deduction</b></th>
-                                        <th><i><b>Tax</b></th>
-                                    </tr>
-                                </thread>
-                                <tbody>
-                                    <tr>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                        <td>-</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -108,8 +106,8 @@
             </div>
         </div>
     </div>
-</div>
-</div>
+    </div>
+    </div>
 </body>
 
 </html>

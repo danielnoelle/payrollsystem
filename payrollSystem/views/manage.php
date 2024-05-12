@@ -1,9 +1,18 @@
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+require_once('../controllers/loadFunctions.php');
+require_once('../models/database.php');
+
+$tax = 0.15;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/manage.css">
+    <link rel="stylesheet" href="../resources/styles/report.css">
     <title>Dashboard</title>
 </head>
 
@@ -69,71 +78,101 @@
                     <div class="dashboard-content">
                         <div class="content-section">
                             <div class="content-section-title">
-                                <span>Payroll</span>
+                                <span>Employees</span>
                                 <div class="button-container">
-                                    <div class="dropdown">
-                                        <div class="dropdown-content">
-                                            <a href="#">CSV</a>
-                                            <a href="#">PDF</a>
-                                        </div>
-                                    </div>
-                                    <button id="open-popup">Add Payroll</button>
+                                    <button id="open-popup">Add Employees</button>
                                 </div>
                                 <div id="popup" class="popup">
                                     <div class="close-btn">&times;</div>
                                     <div class="popup-content">
                                         <div class="popup-text">Personal Information</div>
-                                        <div class="form">
+                                        <form class="form">
                                             <div class="form-row">
                                                 <div class="form-element">
-                                                    <label for="fullname">Full Name:</label>
-                                                    <input type="text" id="fName" placeholder="Enter full name">
+                                                    <label for="name">Full Name:</label>
+                                                    <select name="name" id="name">
+                                                        <option value="" style="display: none;">Select Employee</option>
+                                                        <?php
+                                                        try {
+
+                                                            $database = new Database();
+                                                            $conn = $database->getConnection();
+
+                                                            $query = "SELECT CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) AS employee_name 
+                                                                      FROM credentials c 
+                                                                      INNER JOIN users u ON u.user_id = c.user_id 
+                                                                      WHERE u.user_role = 1";
+                                                            $stmt = $conn->query($query);
+
+                                                            if ($stmt->rowCount() > 0) {
+                                                                while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+                                                                    $employeeName = $row['employee_name'];
+                                                                    echo "<option value=\"$employeeName\">$employeeName</option>";
+                                                                }
+                                                            } else {
+                                                                echo "<option value=''>No employees found</option>";
+                                                            }
+                                                        } catch (PDOException $e) {
+                                                            echo "PDOException: " . $e->getMessage();
+                                                        }
+                                                        ?>
+                                                    </select>
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="email">Hourly Rate</label>
-                                                    <input type="text" id="email" placeholder="Enter hourly rate">
+                                                    <label for="hourlyRate">Hourly Rate</label>
+                                                    <input type="text" name="hourlyRate" id="hourlyRate" placeholder="Enter hourly rate">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-element">
-                                                    <label for="password">Hours Worked</label>
-                                                    <input type="password" id="password" placeholder="Enter hours worked">
+                                                    <label for="hoursWorked">Hours Worked</label>
+                                                    <input type="text" name="hoursWorked" id="hoursWorked" placeholder="Enter hours worked">
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="password">Days Worked</label>
-                                                    <input type="password" id="password" placeholder="Enter days worked">
+                                                    <label for="daysWorked">Days Worked</label>
+                                                    <input type="text" name="daysWorked" id="daysWorked" placeholder="Enter days worked">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-element">
-                                                    <label for="deductions">Tax Deductions</label>
-                                                    <input type="text" id="deduc" placeholder="Enter value">
+                                                    <label for="tax">Tax Deduction</label>
+                                                    <input type="text" name="tax" id="tax" placeholder="Enter value" value="<?php $percentage = $tax * 100;
+                                                                                                                            echo $percentage . '%'; ?>" readonly>
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="bonuses">Benefits Deduction</label>
-                                                    <input type="text" id="bonus" placeholder="Enter value">
+                                                    <label for="bonus">Bonuses</label>
+                                                    <input type="text" name="bonus" id="bonus" placeholder="Enter value">
                                                 </div>
                                             </div>
                                             <div class="form-row">
-                                                <div class="form-element">
-                                                    <label for="password">Other Deductions</label>
-                                                    <input type="password" id="password" placeholder="Enter value">
-                                                </div>
                                                 <div class="form-element">
                                                     <label for="date">Issued Date:</label>
-                                                    <input type="date" id="date" placeholder="Enter your password">
+                                                    <input type="date" name="date" id="date">
+                                                </div>
+                                                <div class="form-element">
+                                                    <label for="benefits">Benefits:</label>
+                                                    <input type="text" name="benefits" id="benefits" placeholder="Enter value">
                                                 </div>
                                             </div>
-
-                                        </div>
-                                        <button class="btn-reg">Calculate</button>
+                                            <div class="form-row">
+                                                <div class="form-element">
+                                                    <label for="salary">Gross Salary</label>
+                                                    <input type="text" name="salary" id="salary" placeholder="Gross salary appears here" readonly>
+                                                </div>
+                                                <div class="form-element">
+                                                    <label for="netSalary">Net Salary</label>
+                                                    <input type="text" name="netSalary" id="netSalary" placeholder="Net salary appears here" readonly>
+                                                </div>
+                                            </div>
+                                            <input type="submit" value="Register" class="btn-reg">
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                             <div class="apps-card">
                                 <div class="app-card">
                                     <div class="title-search-container">
-                                        <span>Transactions</span>
+                                        <span>Employees</span>
                                         <div class="search-filter-container">
                                         </div>
                                     </div>
@@ -141,15 +180,14 @@
                                         <thread>
                                             <tr>
                                                 <th><i><b>Name</b></i></th>
-                                                <th><i><b>Net Salary</b></th>
-                                                <th><i><b>Date</b></th>
+                                                <th><i><b>Hours Worked</b></th>
+                                                <th><i><b>Hourly Rate</b></th>
+                                                <th><i><b>Days Worked</b></th>
                                             </tr>
                                         </thread>
                                         <tbody>
                                             <tr>
-                                                <td>-</td>
-                                                <td>-</td>
-                                                <td>-</td>
+
                                             </tr>
                                         </tbody>
                                     </table>
@@ -163,17 +201,113 @@
     </div>
 </body>
 <script>
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+    document.getElementById('date').value = formattedDate;
+
     const openPopupButton = document.getElementById("open-popup");
     const closePopupButton = document.querySelector(".close-btn");
     const popup = document.querySelector(".popup");
 
+    const hourlyRateInput = document.getElementById('hourlyRate');
+    const hoursWorkedInput = document.getElementById('hoursWorked');
+    const daysWorkedInput = document.getElementById('daysWorked');
+    const bonusInput = document.getElementById('bonus');
+    const salaryInput = document.getElementById('salary');
+    const benefitsInput = document.getElementById('benefits');
+    const netSalaryInput = document.getElementById('netSalary');
+    const taxInput = document.getElementById('tax');
+
+    const originalBorderColor = 'rgba(33, 33, 33, 0.8)';
+
+    function calculateGrossSalary() {
+        const hourlyRate = parseFloat(hourlyRateInput.value);
+        const hoursWorked = parseFloat(hoursWorkedInput.value);
+        const daysWorked = parseFloat(daysWorkedInput.value);
+        const bonus = parseFloat(bonusInput.value);
+
+        hourlyRateInput.style.borderColor = originalBorderColor;
+        hoursWorkedInput.style.borderColor = originalBorderColor;
+        daysWorkedInput.style.borderColor = originalBorderColor;
+        bonusInput.style.borderColor = originalBorderColor;
+
+        if (isNaN(hourlyRate)) {
+            hourlyRateInput.style.borderColor = 'red';
+        }
+        if (isNaN(hoursWorked)) {
+            hoursWorkedInput.style.borderColor = 'red';
+        }
+        if (isNaN(daysWorked)) {
+            daysWorkedInput.style.borderColor = 'red';
+        }
+
+        if (isNaN(bonus)) {
+            bonusInput.style.borderColor = 'red';
+        }
+
+        if (!isNaN(hourlyRate) && !isNaN(hoursWorked) && !isNaN(daysWorked)) {
+            const grossSalary = (hourlyRate * hoursWorked * daysWorked);
+            salaryInput.value = grossSalary;
+
+            if (!isNaN(bonus)) {
+                const grossSalary = (hourlyRate * hoursWorked * daysWorked) + bonus;
+                salaryInput.value = grossSalary;
+                return grossSalary;
+            }
+
+            return grossSalary;
+
+        }
+    }
+
+    function calculateNetSalary() {
+
+        const benefits = parseFloat(benefitsInput.value);
+        const tax = parseFloat(<?php echo $tax; ?>);
+
+        benefitsInput.style.borderColor = originalBorderColor;
+        taxInput.style.borderColor = originalBorderColor;
+
+        if (isNaN(benefits)) {
+            benefitsInput.style.borderColor = 'red';
+        }
+        if (isNaN(tax)) {
+            taxInput.style.borderColor = 'red';
+        }
+
+        if (!isNaN(benefits) && !isNaN(tax)) {
+
+            const grossSalary = calculateGrossSalary();
+            const taxableIncome = grossSalary - benefits;
+            const taxAmount = taxableIncome * tax;
+            const netSalary = grossSalary - benefits - taxAmount;
+
+            netSalaryInput.value = netSalary;
+
+        }
+    }
+
     openPopupButton.addEventListener("click", () => {
+        Swal.fire({
+            icon: "info",
+            title: "Take Note",
+            text: "When the input's border turns red, that means the value entered is invalid",
+            showConfirmButton: true,
+            confirmButtonText: "Okay",
+        });
         popup.style.display = "block";
     });
 
     closePopupButton.addEventListener("click", () => {
         popup.style.display = "none";
     });
+
+    hourlyRateInput.addEventListener('input', calculateGrossSalary);
+    hoursWorkedInput.addEventListener('input', calculateGrossSalary);
+    daysWorkedInput.addEventListener('input', calculateGrossSalary);
+    bonusInput.addEventListener('input', calculateGrossSalary);
+    benefitsInput.addEventListener('input', calculateNetSalary);
+    taxInput.addEventListener('input', calculateNetSalary);
 </script>
 
 </html>

@@ -50,7 +50,7 @@ require_once('../controllers/loadFunctions.php');
                 </div>
             </form>
             <div class="no-account">
-                <p>Don't have an account? <a href="signup.php">Sign up</a></p>
+                <p>Don't have an account? <a href="../views/signup.php">Sign up</a></p>
             </div>
         </div>
     </div>

@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Company Name</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -39,27 +39,28 @@
                             </div>
                             <div class="category-items">
                                 <a href="#" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="../views/manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="../views/report.php"><i class="fa-light fa-user-group"></i>Employees</a>
-                                <a href="../views/history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
+                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
+                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
                             </div>
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                                <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
-                                <a href="../views/support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="../views/settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
+                                <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
+                                <a href="settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
                             </div>
                         </div>
                     </div>
                     <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
                     <div class="profile-card">
                         <div class="profile-info">
                             <h4 class="username">John Doe</h4>
                             <p class="role">Administrator</p>
-                            <button class="sign-out-btn" onclick="location.href = 'login.php'">Sign Out</button>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
                     <div class="trademark">@2024 PayStation</div>
@@ -87,7 +88,6 @@
                             <div class="large-app-card">
                                 <span>Demographics</span>
                             </div>
-                            
                         </div>
                     </div>
                 </div>

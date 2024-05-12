@@ -111,7 +111,7 @@ nav {
 }
 
 .logo img {
-    width: 8vw;
+    width: 11vw;
 }
 
 .profile-icon img {
@@ -193,6 +193,10 @@ nav {
 
 .category-items a:hover {
     background-color: rgb(12, 15, 25, 0.3);
+}
+
+.category-items a.active i {
+  color: #007bff; 
 }
 
 .active {
@@ -279,7 +283,7 @@ flex-direction: column;
 color: white;
 font-size:36px;
 margin-bottom: 14px;
-font-family: 'Nunito Sans', sans-serif;
+font-family: 'Poppins', sans-serif;
 font-weight: 600;
 position: relative;
 }
@@ -320,9 +324,8 @@ position: relative;
     border: 1px solid var(--theme-bg-color);
     padding: 20px;
     cursor: pointer;
-    width: 350px;
+    width: 100%;
     transition: 0.3 ease;
-    width: calc(2 * 420px + 20px);
     height: calc(2 * 260px + 30px);
   }
 
@@ -384,6 +387,7 @@ position: relative;
     padding: 8px;
     width: 225px;
     background: rgba(33, 33, 33, 0.4);
+    color: white;
     border-radius: 4px; 
     margin-right: 10px;
     font-family: 'Poppins',sans-serif;
@@ -451,7 +455,7 @@ th {
   min-width: 75px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 .dropdown-content a {
@@ -464,7 +468,7 @@ th {
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(12, 15, 25, 0.3);
+  background-color: rgba(8, 10, 17, 0.6);
   width:80px;
 }
 
@@ -474,7 +478,7 @@ th {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: rgba(12, 15, 25, 0.3);
+  background-color: rgba(8, 10, 17, 0.6);
 }
 
 .profile-section {
@@ -491,8 +495,17 @@ th {
   background-color: rgba(33,33,33, 0.4);
   border-radius: 0.75vw;
   padding: 1vh 1vw;
-  margin-bottom: 1vh;
+  margin-bottom: 2vh;
   width: 100%;
+}
+
+.profile-picture {
+  max-width: 180px;
+  max-height: 180px;
+  width: auto;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: -15px;
 }
 
 .profile-info {
@@ -529,7 +542,7 @@ font-size: 20px;
 
 .sign-out-btn {
   padding: 0.5vw 1vw;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 0.4vw;
@@ -548,6 +561,9 @@ font-size: 20px;
   font-weight: bold;
 }
 
+.others{
+  margin-top: 3.5px;
+}
 
   @media screen and (max-width: 1110px) {
     .app-card {

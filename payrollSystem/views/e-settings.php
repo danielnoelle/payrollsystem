@@ -3,7 +3,7 @@
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/security.css">
+    <link rel="stylesheet" href="../resources/styles/e-settings.css">
     <title>History</title>
 </head>
 
@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Nigga Denver</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -38,34 +38,31 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php" class="active"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="e-overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="e-paystub.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
                             </div>
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                            <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
-                                <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="#"><i class="fa-regular fa-gear"></i>Settings</a>
+                                <a href="e-support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
+                                <a href="#" class="active"><i class="fa-regular fa-gear"></i>Settings</a>
                             </div>
                         </div>
                     </div>
-                    <div class="profile">
-                        <div class="profile-left">
-                            <img src="../resources/images/logo-icon.png">
-                        </div>
-                        <div class="profile-center">
-                            <h4 class="username">Nigga Dick</h4>
+                    <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <h4 class="username">John Doe</h4>
                             <p class="role">Administrator</p>
-                        </div>
-                        <div class="profile-right">
-                            <i class="fa-light fa-circle-chevron-up"></i>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
+                    <div class="trademark">@2024 PayStation</div>
+                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
@@ -77,8 +74,8 @@
                             <div class="app-card">
                                 <nav class="title-search-container">
                                     <ul>
-                                        <li><a href="settings.php">Edit Profile</a></li>
-                                        <li class="active"><a href="">Security</a></li>
+                                        <li class="active"><a href="">Edit Profile</a></li>
+                                        <li><a href="security.php">Security</a></li>
                                     </ul>
                                 </nav>
                                 <div class="form-section">
@@ -88,43 +85,43 @@
                                 <form>
                                 <div class="form-group">
                                     <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" name="firstName">
+                                    <input type="text" id="firstName" name="firstName" placeholder="Enter First Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="lastName">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName">
+                                    <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
-                                    <input type="email" id="email" name="email">
+                                    <input type="email" id="email" name="email" placeholder="Enter E-mail">
                                 </div>
                                 <div class="form-group">
                                     <label for="password">Password</label>
-                                    <input type="password" id="password" name="password">
+                                    <input type="password" id="password" name="password" placeholder="Enter Password">
                                 </div>
                                 <div class="form-group">
                                     <label for="birthdate">Birth Date</label>
-                                    <input type="date" id="birthdate" name="birthdate">
+                                    <input type="date" id="birthdate" name="birthdate" placeholder="Enter Birthdate">
                                 </div>
                                 <div class="form-group">
                                     <label for="number">Number</label>
-                                    <input type="text" id="number" name="number">
+                                    <input type="text" id="number" name="number" placeholder="Enter Number">
                                 </div>
                                 <div class="form-group">
                                     <label for="street">Street</label>
-                                    <input type="text" id="street" name="street">
+                                    <input type="text" id="street" name="street" placeholder="Enter Street">
                                 </div>
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <input type="text" id="city" name="city">
+                                    <input type="text" id="city" name="city" placeholder="Enter City">
                                 </div>
                                 <div class="form-group">
                                     <label for="province">Province</label>
-                                    <input type="text" id="province" name="province">
+                                    <input type="text" id="province" name="province" placeholder="Enter Province">
                                 </div>
                                 <div class="form-group">
                                     <label for="country">Country</label>
-                                    <input type="text" id="country" name="country">
+                                    <input type="text" id="country" name="country" placeholder="Enter Country">
                                 </div>
                                 <div class="button-container">
                                     <button type="submit">Save Changes</button>
@@ -141,9 +138,8 @@
 </div>
 </div>
 </body>
-
 <script>
-var nav = $('nav');
+    var nav = $('nav');
 var line = $('<div />').addClass('line');
 
 line.appendTo(nav);

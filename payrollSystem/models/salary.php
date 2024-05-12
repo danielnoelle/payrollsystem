@@ -8,7 +8,6 @@ class Salary {
     private $benefits;
     private $hourlyRate;
     private $grossSalary;
-    private $totalDeduction;
     private $netSalary;
     private $dateIssued;
 
@@ -133,26 +132,6 @@ class Salary {
     public function setGrossSalary($grossSalary)
     {
         $this->grossSalary = $grossSalary;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of totalDeduction
-     */ 
-    public function getTotalDeduction()
-    {
-        return $this->totalDeduction;
-    }
-
-    /**
-     * Set the value of totalDeduction
-     *
-     * @return  self
-     */ 
-    public function setTotalDeduction($totalDeduction)
-    {
-        $this->totalDeduction = $totalDeduction;
 
         return $this;
     }

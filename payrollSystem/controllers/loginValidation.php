@@ -42,9 +42,11 @@ if (isset($_POST['email'], $_POST['password'])) {
 
                     if ($user['role_id'] === 1) {
                         header("Location: ../views/e-overview.php");
+                        session_destroy();
                         exit;
                     } else {
                         header("Location: ../views/overview.php");
+                        session_destroy();
                         exit;
                     }
                 } else {

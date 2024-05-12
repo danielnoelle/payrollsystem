@@ -3,8 +3,8 @@
 
 <head>
     <?php include_once('../resources/components/head.html'); ?>
-    <link rel="stylesheet" href="../resources/styles/settings.css">
-    <title>History</title>
+    <link rel="stylesheet" href="../resources/styles/e-support.css">
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Nigga Denver</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -38,99 +38,87 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
-                                <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
-                                <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
+                                <a href="e-overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                <a href="e-paystub.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
                             </div>
                         </div>
                         <div class="category">
                             <div class="category-title">
-                                <h3>Others</h3>
+                            <h3 class="others">Others</h3>
                             </div>
                             <div class="category-items">
-                                <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="#"><i class="fa-regular fa-gear"></i>Settings</a>
+                                <a href="#" class="active"><i class="fa-regular fa-circle-info"></i>Support</a>
+                                <a href="e-settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
                             </div>
                         </div>
                     </div>
-                    <div class="profile">
-                        <div class="profile-left">
-                            <img src="../resources/images/logo-icon.png">
-                        </div>
-                        <div class="profile-center">
-                            <h4 class="username">Nigga Dick</h4>
+                    <div class="profile-section">
+                    <img class="profile-picture" src="../resources/images/payroll-guy.png" alt="Profile Picture">
+                    <div class="profile-card">
+                        <div class="profile-info">
+                            <h4 class="username">John Doe</h4>
                             <p class="role">Administrator</p>
-                        </div>
-                        <div class="profile-right">
-                            <i class="fa-light fa-circle-chevron-up"></i>
+                            <button class="sign-out-btn">Sign Out</button>
                         </div>
                     </div>
+                    <div class="trademark">@2024 PayStation</div>
+                </div>
                 </div>
             <div class="right-pane">
                 <div class="dashboard-content">
-                    <div class="content-section">   
+                    <div class="content-section">
                         <div class="content-section-title">
-                            <span>Settings</span>
+                            <span>Support</span>
                         </div>
                         <div class="apps-card">
                             <div class="app-card">
-                                <nav class="title-search-container">
-                                    <ul>
-                                        <li class="active"><a href="">Edit Profile</a></li>
-                                        <li><a href="security.php">Security</a></li>
-                                    </ul>
-                                </nav>
-                                <div class="form-section">
-                                    <div class="photo-frame">
-                                        <img src="../resources/images/logo-icon.png" alt="Profile Picture" class="profile-picture">
+                                <div class="title-search-container">
+                                <span>Frequently Asked Questions</span>
+                                </div>
+                                <div class="support">
+                                <div class="support-image">
+                                    <img src="../resources/images/support-tm.png">
+                                </div>
+                                <div class="accordion">
+                                <div>
+                                    <input type="radio" name="example_accordion" id="section2" class="accordion__input">
+                                    <label for="section4" class="accordion__label">What is PayStation?</label>
+                                    <div class="accordion__content">
+                                        <p>PayStation is a payroll system that automates and streamlines your company's payroll processes using a MySQL database.</p>
                                     </div>
-                                <form>
-                                <div class="form-group">
-                                    <label for="firstName">First Name</label>
-                                    <input type="text" id="firstName" name="firstName" placeholder="Enter First Name">
                                 </div>
-                                <div class="form-group">
-                                    <label for="lastName">Last Name</label>
-                                    <input type="text" id="lastName" name="lastName" placeholder="Enter Last Name">
+                                <div>
+                                    <input type="radio" name="example_accordion" id="section2" class="accordion__input">
+                                    <label for="section4" class="accordion__label">What are the benefits of using PayStation</label>
+                                    <div class="accordion__content">
+                                        <p>Benefits include increased efficiency, reduced errors, improved compliance, enhanced security, and cost-effectiveness.</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" name="email" placeholder="Enter E-mail">
+                                <div>
+                                    <input type="radio" name="example_accordion" id="section2" class="accordion__input">
+                                    <label for="section4" class="accordion__label">What features does PayStation offer?</label>
+                                    <div class="accordion__content">
+                                        <p>PayStation offers payroll processing, tax filing and compliance, reporting and analytics, leave management, and employee tracking.</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="password">Password</label>
-                                    <input type="password" id="password" name="password" placeholder="Enter Password">
+                                <div>
+                                    <input type="radio" name="example_accordion" id="section2" class="accordion__input">
+                                    <label for="section4" class="accordion__label">How do I get started with PayStation?</label>
+                                    <div class="accordion__content">
+                                        <p>Contact our sales team, set up your company account, configure your payroll settings, and start processing payroll.</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="birthdate">Birth Date</label>
-                                    <input type="date" id="birthdate" name="birthdate" placeholder="Enter Birthdate">
+                                <div>
+                                    <input type="radio" name="example_accordion" id="section2" class="accordion__input">
+                                    <label for="section4" class="accordion__label">What if I need help using PayStation?</label>
+                                    <div class="accordion__content">
+                                        <p>We provide comprehensive documentation, responsive customer support, and training webinars to assist you.</p>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="number">Number</label>
-                                    <input type="text" id="number" name="number" placeholder="Enter Number">
                                 </div>
-                                <div class="form-group">
-                                    <label for="street">Street</label>
-                                    <input type="text" id="street" name="street" placeholder="Enter Street">
                                 </div>
-                                <div class="form-group">
-                                    <label for="city">City</label>
-                                    <input type="text" id="city" name="city" placeholder="Enter City">
                                 </div>
-                                <div class="form-group">
-                                    <label for="province">Province</label>
-                                    <input type="text" id="province" name="province" placeholder="Enter Province">
-                                </div>
-                                <div class="form-group">
-                                    <label for="country">Country</label>
-                                    <input type="text" id="country" name="country" placeholder="Enter Country">
-                                </div>
-                                <div class="button-container">
-                                    <button type="submit">Save Changes</button>
-                                </div>
-                            </form>
-                        </div>
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -142,66 +130,11 @@
 </div>
 </body>
 <script>
-    var nav = $('nav');
-var line = $('<div />').addClass('line');
-
-line.appendTo(nav);
-
-var active = nav.find('.active');
-var pos = 0;
-var wid = 0;
-
-if(active.length) {
-  pos = active.position().left;
-  wid = active.width();
-  line.css({
-    left: pos,
-    width: wid
-  });
-}
-
-nav.find('ul li a').click(function(e) {
-  e.preventDefault();
-  if(!$(this).parent().hasClass('active') && !nav.hasClass('animate')) {
-    
-    nav.addClass('animate');
-
-    var _this = $(this);
-
-    nav.find('ul li').removeClass('active');
-
-    var position = _this.parent().position();
-    var width = _this.parent().width();
-
-    if(position.left >= pos) {
-      line.animate({
-        width: ((position.left - pos) + width)
-      }, 300, function() {
-        line.animate({
-          width: width,
-          left: position.left
-        }, 150, function() {
-          nav.removeClass('animate');
-        });
-        _this.parent().addClass('active');
-      });
-    } else {
-      line.animate({
-        left: position.left,
-        width: ((pos - position.left) + wid)
-      }, 300, function() {
-        line.animate({
-          width: width
-        }, 150, function() {
-          nav.removeClass('animate');
-        });
-        _this.parent().addClass('active');
-      });
-    }
-
-    pos = position.left;
-    wid = width;
-  }
-});
+    document.querySelectorAll('.accordion__label').forEach(function(label) {
+    label.addEventListener('click', function(e) {
+    var input = e.target.previousElementSibling;
+    input.checked = !input.checked;
+    });
+ });
 </script>
 </html>
