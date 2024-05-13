@@ -31,7 +31,7 @@ $tax = 0.15;
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Company Name</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -47,9 +47,9 @@ $tax = 0.15;
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+
                                 <a href="#" class="active"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
-                                <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
+                                <a href="../views/report.php"><i class="fa-light fa-user-group"></i>Employees</a>
                                 <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
                             </div>
                         </div>
@@ -59,14 +59,33 @@ $tax = 0.15;
                             </div>
                             <div class="category-items">
                                 <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
+
                             </div>
                         </div>
                     </div>
                     <div class="profile-section">
                         <div class="profile-card">
                             <div class="profile-info">
-                                <h4 class="username">John Doe</h4>
+                                <h4 class="username"><?php
+                                                        try {
+
+                                                            $userId = $_SESSION['user_id'];
+
+                                                            $database = new Database();
+                                                            $conn = $database->getConnection();
+
+                                                            $query = "SELECT c.user_id, CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) as employee_name
+                                                                FROM credentials c 
+                                                                INNER JOIN users u ON u.user_id = c.user_id
+                                                                WHERE c.user_id = $userId;";
+                                                            $stmt = $conn->query($query);
+
+                                                            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                            echo $result['user_id'];
+                                                        } catch (PDOException $e) {
+                                                            echo "PDOException: " . $e->getMessage();
+                                                        }
+                                                        ?></h4>
                                 <p class="role">Administrator</p>
                                 <button class="sign-out-btn" onclick="location.href = 'login.php'">Sign Out</button>
                             </div>
@@ -80,13 +99,13 @@ $tax = 0.15;
                             <div class="content-section-title">
                                 <span>Payroll</span>
                                 <div class="button-container">
-                                    <button id="open-popup">Add Employees</button>
+                                    <button id="open-popup">Run Payroll</button>
                                 </div>
                                 <div id="popup" class="popup">
                                     <div class="close-btn">&times;</div>
                                     <div class="popup-content">
                                         <div class="popup-text">Personal Information</div>
-                                        <form class="form">
+                                        <form class="form" action="../controllers/addToEmployee.php" method="post">
                                             <div class="form-row">
                                                 <div class="form-element">
                                                     <label for="name">Full Name:</label>
@@ -96,7 +115,7 @@ $tax = 0.15;
                                                         $database = new Database();
                                                         $conn = $database->getConnection();
 
-                                                        $query = "SELECT CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) as employee_name
+                                                        $query = "SELECT c.user_id, CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) as employee_name
                                                                       FROM credentials c 
                                                                       INNER JOIN users u ON u.user_id = c.user_id 
                                                                       WHERE u.role_id = 1";
@@ -108,7 +127,8 @@ $tax = 0.15;
                                                         if ($stmt->rowCount() > 0) {
                                                             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                                                                 $employeeName = $row['employee_name'];
-                                                                echo "<option value=\"$employeeName\">$employeeName</option>";
+                                                                $userId = $row['user_id'];
+                                                                echo "<option value=\"$userId\">$employeeName</option>";
                                                             }
                                                         } else {
                                                             echo "<option value=''>No employees found</option>";
@@ -121,7 +141,7 @@ $tax = 0.15;
                                                     ?>
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="hourlyRate">Hourly Rate</label>
+                                                    <label for="hourlyRate">Hourly Rate: ₱</label>
                                                     <input type="text" name="hourlyRate" id="hourlyRate" placeholder="Enter hourly rate">
                                                 </div>
                                             </div>
@@ -137,12 +157,12 @@ $tax = 0.15;
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-element">
-                                                    <label for="tax">Tax Deduction</label>
+                                                    <label for="tax">Tax Deduction:</label>
                                                     <input type="text" name="tax" id="tax" placeholder="Enter value" value="<?php $percentage = $tax * 100;
                                                                                                                             echo $percentage . '%'; ?>" readonly>
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="bonus">Bonuses</label>
+                                                    <label for="bonus">Bonuses: ₱</label>
                                                     <input type="text" name="bonus" id="bonus" placeholder="Enter value">
                                                 </div>
                                             </div>
@@ -152,21 +172,21 @@ $tax = 0.15;
                                                     <input type="date" name="date" id="date">
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="benefits">Benefits:</label>
+                                                    <label for="benefits">Benefits: ₱</label>
                                                     <input type="text" name="benefits" id="benefits" placeholder="Enter value">
                                                 </div>
                                             </div>
                                             <div class="form-row">
                                                 <div class="form-element">
-                                                    <label for="salary">Gross Salary</label>
+                                                    <label for="salary">Gross Salary: ₱</label>
                                                     <input type="text" name="salary" id="salary" placeholder="Gross salary appears here" readonly>
                                                 </div>
                                                 <div class="form-element">
-                                                    <label for="netSalary">Net Salary</label>
+                                                    <label for="netSalary">Net Salary: ₱</label>
                                                     <input type="text" name="netSalary" id="netSalary" placeholder="Net salary appears here" readonly>
                                                 </div>
                                             </div>
-                                            <input type="submit" value="Register" class="btn-reg">
+                                            <input type="submit" value="Submit" class="btn-reg">
                                         </form>
                                     </div>
                                 </div>
@@ -179,24 +199,73 @@ $tax = 0.15;
                                         </div>
                                     </div>
                                     <table class="content-table">
+                                        <?php
+                                        try {
+
+                                            $database = new Database();
+                                            $pdo = $database->getConnection();
+
+                                            $query = "
+                                            SELECT
+                                                CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) AS name,
+                                                e.employee_hours_worked AS hours_worked,
+                                                s.salary_hourly_rate AS hourly_rate,
+                                                e.employee_days_worked AS days_worked,
+                                                s.salary_bonus AS bonus,
+                                                s.salary_tax_deduction AS tax,
+                                                s.salary_benefits AS benefits,
+                                                s.salary_total_deduction AS total_deduction,
+                                                s.salary_gross_salary AS gross_salary,
+                                                s.salary_net_salary AS net_salary,
+                                                s.salary_date_issued AS issued_date
+                                            FROM
+                                                users u
+                                            INNER JOIN
+                                                credentials c ON u.user_id = c.user_id
+                                            INNER JOIN
+                                                employee e ON u.user_id = e.user_id
+                                            INNER JOIN
+                                                salary s ON e.employee_id = s.employee_id
+                                            WHERE
+                                                u.role_id = 1";
+
+                                            $stmt = $pdo->query($query);
+                                            $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                        } catch (PDOException $e) {
+                                            echo "PDOException: " . $e->getMessage();
+                                        }
+                                        ?>
                                         <thead>
                                             <tr>
                                                 <th><i><b>Name</b></i></th>
                                                 <th><i><b>Hours Worked</b></th>
                                                 <th><i><b>Hourly Rate</b></th>
                                                 <th><i><b>Days Worked</b></th>
-                                                <th><i><b>Tax</b></i></th>
                                                 <th><i><b>Bonus</b></i></th>
+                                                <th><i><b>Tax</b></i></th>
                                                 <th><i><b>Benefits</b></i></th>
+                                                <th><i><b>Total Deduction</b></i></th>
                                                 <th><i><b>Gross Salary</b></i></th>
                                                 <th><i><b>Net Salary</b></i></th>
                                                 <th><i><b>Issued Date</b></i></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-
-                                            </tr>
+                                            <?php foreach ($users as $user) : ?>
+                                                <tr>
+                                                    <td><?php echo $user['name']; ?></td>
+                                                    <td><?php echo $user['hours_worked']; ?></td>
+                                                    <td>₱ <?php echo number_format($user['hourly_rate'], 2); ?></td>
+                                                    <td><?php echo $user['days_worked']; ?></td>
+                                                    <td>₱ <?php echo number_format($user['bonus'], 2); ?></td>
+                                                    <td><?php echo $user['tax']; ?></td>
+                                                    <td>₱ <?php echo number_format($user['benefits'], 2); ?></td>
+                                                    <td>₱ <?php echo number_format($user['total_deduction'], 2); ?></td>
+                                                    <td>₱ <?php echo number_format($user['gross_salary'], 2); ?></td>
+                                                    <td>₱ <?php echo number_format($user['net_salary'], 2); ?></td>
+                                                    <td><?php echo $user['issued_date']; ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -255,11 +324,11 @@ $tax = 0.15;
 
         if (!isNaN(hourlyRate) && !isNaN(hoursWorked) && !isNaN(daysWorked)) {
             const grossSalary = (hourlyRate * hoursWorked * daysWorked);
-            salaryInput.value = grossSalary;
+            salaryInput.value = grossSalary.toFixed(2);
 
             if (!isNaN(bonus)) {
                 const grossSalary = (hourlyRate * hoursWorked * daysWorked) + bonus;
-                salaryInput.value = grossSalary;
+                salaryInput.value = grossSalary.toFixed(2);
                 return grossSalary;
             }
 
@@ -288,9 +357,9 @@ $tax = 0.15;
             const grossSalary = calculateGrossSalary();
             const taxableIncome = grossSalary - benefits;
             const taxAmount = taxableIncome * tax;
-            const netSalary = grossSalary - benefits - taxAmount;
+            const netSalary = taxableIncome - taxAmount;
 
-            netSalaryInput.value = netSalary;
+            netSalaryInput.value = netSalary.toFixed(2);
 
         }
     }

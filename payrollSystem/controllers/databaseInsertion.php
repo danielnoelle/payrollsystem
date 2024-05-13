@@ -17,7 +17,7 @@ foreach ($fields as $field) {
 
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
-$role = $_SESSION['role'];
+$role = 1;
 $fname = $_SESSION['fname'];
 $lname = $_SESSION['lname'];
 $gender = $_SESSION['gender'];
@@ -49,9 +49,30 @@ if ($isNotEmpty) {
         $numDigits = 4;
 
         $min = pow(10, $numDigits - 1);
-        $max = pow(10, $numDigits - 1);
+        $max = pow(10, $numDigits) - 1;
 
-        $userId = date("Y", strtotime("now")) . "-" . rand($min, $max);
+        $stmt = $pdo->prepare("SELECT COUNT(*) AS count FROM users WHERE user_id LIKE ?");
+        $stmt->execute([date("Y", strtotime("now")) . "-%"]);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $existingCount = $result['count'];
+
+        if ($existingCount >= $max - $min + 1) {
+            echo "Error: Maximum user IDs for the year reached. Please try again later.";
+            exit;
+        } else {
+            do {
+                $randomNumber = mt_rand($min, $max);
+                $userId = date("Y", strtotime("now")) . "-" . str_pad($randomNumber, $numDigits, '0', STR_PAD_LEFT);
+
+                $stmt = $pdo->prepare("SELECT COUNT(*) AS count FROM users WHERE user_id = ?");
+                $stmt->execute([$userId]);
+                $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                $count = $result['count'];
+            } while ($count > 0);
+
+        }
 
         $stmt = $pdo->prepare("INSERT INTO users (user_id, company_id, role_id) VALUES (?, ?, ?)");
         $stmt->execute([$userId, $companyId, $role]);
@@ -64,10 +85,10 @@ if ($isNotEmpty) {
         $pdo->commit();
 
         if ($role === 1) {
-            header("Location: ../views/e-overview.php");
+            header("Location: ../views/e-paystub.php");
             exit;
         } else {
-            header("Location: ../views/overview.php");
+            header("Location: ../views/manage.php");
             exit;
         }
     } catch (PDOException $e) {

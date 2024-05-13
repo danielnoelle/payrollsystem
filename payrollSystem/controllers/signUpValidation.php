@@ -4,8 +4,6 @@ require_once('../models/database.php');
 
 session_start();
 
-$roles = array(1, 2);
-
 $database = new Database();
 $pdo = $database->getConnection();
 
@@ -29,15 +27,6 @@ function convertToInteger($numberString) {
 
 $_SESSION["password"] = trim(htmlspecialchars($_POST["password"]));
 
-$_SESSION['role'] = $_POST['role'];
-$role = convertToInteger($_SESSION['role']);
-
-if (isset($role) && in_array($role, $roles) && is_int($role)) {
-    $_SESSION['role'] = trim(htmlspecialchars($role));
-} else {
-    $_SESSION['role'] = "";
-}
-
 if (isset($_POST['email']) && !empty($_POST['email'])) {
     $_SESSION["email"] = trim(filter_var($_POST["email"], FILTER_SANITIZE_EMAIL));
 } else {
@@ -46,10 +35,9 @@ if (isset($_POST['email']) && !empty($_POST['email'])) {
 
 $email = $_SESSION['email'];
 $password = $_SESSION['password'];
-$role = $_SESSION['role'];
 
 $isEmailFound = false;
-$isValidated = !empty($email) && !empty($password) && !empty($role);
+$isValidated = !empty($email) && !empty($password);
 
 try {
     $stmt = $pdo->prepare("SELECT * FROM credentials WHERE credentials_email = :email");

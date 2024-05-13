@@ -55,18 +55,6 @@ require('../controllers/loadFunctions.php');
                                     <?php validateInput('password', 'passwordSpan', 'password') ?>
                                 </div>
                             </div>
-                            <div class="role">
-                                <label>Role <span>*</span><span class="error-msg" id="roleSpan">Invalid role. Please try again</span></label>
-                                <div class="field-input">
-                                    <select name="role" id="role">
-                                        <option value="" style="display: none;">Select Role</option>
-                                        <option value="2">Admin</option>
-                                        <option value="1">Employee</option>
-                                    </select>
-                                    <i class="fa-light fa-user-group-simple"></i>
-                                    <?php validateInput('role', 'roleSpan', 'role') ?>
-                                </div>
-                            </div>
                             <div class="submit">
                                 <input type="submit" value="Continue">
                             </div>
@@ -82,22 +70,6 @@ require('../controllers/loadFunctions.php');
     <script>
         const emailInput = document.getElementById("email");
         const passwordInput = document.getElementById("password");
-
-        emailInput.addEventListener('input', () => {
-
-            emailInput.reportValidity();
-            if (emailInput.value === "") {
-                emailInput.setCustomValidity("Please enter your email");
-            }
-
-            if (!validateEmail(emailInput.value)) {
-                emailInput.setCustomValidity("Invalid format. Please try again");
-            } else {
-                emailInput.setCustomValidity("");
-            }
-
-            emailInput.reportValidity();
-        });
 
         passwordInput.addEventListener('input', () => {
 

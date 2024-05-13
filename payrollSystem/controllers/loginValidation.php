@@ -41,12 +41,10 @@ if (isset($_POST['email'], $_POST['password'])) {
                     $_SESSION['user_id'] = $user['user_id'];
 
                     if ($user['role_id'] === 1) {
-                        header("Location: ../views/e-overview.php");
-                        session_destroy();
+                        header("Location: ../views/e-paystub.php");
                         exit;
                     } else {
-                        header("Location: ../views/overview.php");
-                        session_destroy();
+                        header("Location: ../views/manage.php");
                         exit;
                     }
                 } else {

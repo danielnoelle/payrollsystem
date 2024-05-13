@@ -5,6 +5,37 @@ require_once('../controllers/loadFunctions.php');
 require_once('../models/database.php');
 
 $tax = 0.15;
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'delete_employee') {
+
+    $employeeId = isset($_POST['employee_id']) ? $_POST['employee_id'] : null;
+
+    if ($employeeId) {
+        try {
+            $database = new Database();
+            $pdo = $database->getConnection();
+
+            $query = "DELETE FROM employee WHERE employee_id = :employee_id";
+            $stmt = $pdo->prepare($query);
+            $stmt->bindParam(':employee_id', $employeeId);
+            $stmt->execute();
+
+            if ($stmt->rowCount() > 0) {
+                http_response_code(200);
+                exit;
+            } else {
+                http_response_code(404);
+                exit;
+            }
+        } catch (PDOException $e) {
+            http_response_code(500);
+            exit;
+        }
+    } else {
+        http_response_code(400);
+        exit;
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +62,7 @@ $tax = 0.15;
                     </div>
                     <div class="right-nav">
                         <div class="user-fullname">
-                            <h2>Company Name</h2>
+                            <h2>7R Grocery Store</h2>
                         </div>
                         <div class="profile-icon">
                             <img src="../resources/images/logo-icon.png">
@@ -47,7 +78,7 @@ $tax = 0.15;
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                
                                 <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
                                 <a href="#" class="active"><i class="fa-light fa-user-group"></i>Employees</a>
                                 <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
@@ -59,7 +90,7 @@ $tax = 0.15;
                             </div>
                             <div class="category-items">
                                 <a href="support.php"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -78,10 +109,7 @@ $tax = 0.15;
                     <div class="dashboard-content">
                         <div class="content-section">
                             <div class="content-section-title">
-                                <span>Employees</span>
-                                <div class="button-container">
-                                    <button id="open-popup">Add Employees</button>
-                                </div>
+                                <span style="margin-bottom: 2vh !important;">Employees</span>
                                 <div id="popup" class="popup">
                                     <div class="close-btn">&times;</div>
                                     <div class="popup-content">
@@ -172,23 +200,69 @@ $tax = 0.15;
                             <div class="apps-card">
                                 <div class="app-card">
                                     <div class="title-search-container">
-                                        <span>Employees</span>
+                                        <span style="font-size: 1.1vw !important;">Employees</span>
                                         <div class="search-filter-container">
                                         </div>
                                     </div>
                                     <table class="content-table">
                                         <thread>
+                                            <?php
+
+                                            try {
+
+                                                $database = new Database();
+                                                $pdo = $database->getConnection();
+
+                                                $query = "SELECT
+                                                CONCAT(c.credentials_first_name, ' ', c.credentials_last_name) AS full_name,
+                                                e.employee_id,
+                                                e.user_id,
+                                                a.*,
+                                                c.*
+                                            FROM
+                                                credentials c
+                                            INNER JOIN
+                                                employee e ON c.user_id = e.user_id
+                                            INNER JOIN
+                                                address a ON c.address_id = a.address_id;
+                                            ";
+                                                $stmt = $pdo->query($query);
+                                                $employees = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                                            } catch (PDOException $e) {
+                                                echo "PDOException: " . $e->getMessage();
+                                            }
+
+                                            ?>
                                             <tr>
                                                 <th><i><b>Name</b></i></th>
-                                                <th><i><b>Hours Worked</b></th>
-                                                <th><i><b>Hourly Rate</b></th>
-                                                <th><i><b>Days Worked</b></th>
+                                                <th><i><b>Email</b></th>
+                                                <th><i><b>Gender</b></th>
+                                                <th><i><b>Birthdate</b></th>
+                                                <th><i><b>Contact Number</b></th>
+                                                <th><i><b>Street</b></th>
+                                                <th><i><b>City</b></th>
+                                                <th><i><b>Province</b></th>
+                                                <th><i><b>Country</b></th>
+                                                <th><i><b>Postal Code</b></th>
+                                                <th><i><b>Action</b></i></th>
                                             </tr>
                                         </thread>
                                         <tbody>
-                                            <tr>
-
-                                            </tr>
+                                            <?php foreach ($employees as $employee) : ?>
+                                                <tr>
+                                                    <td><?php echo $employee['full_name']; ?></td>
+                                                    <td><?php echo $employee['credentials_email']; ?></td>
+                                                    <td><?php echo $employee['credentials_gender']; ?></td>
+                                                    <td><?php echo $employee['credentials_birthdate']; ?></td>
+                                                    <td><?php echo $employee['credentials_contact_no']; ?></td>
+                                                    <td><?php echo $employee['address_street']; ?></td>
+                                                    <td><?php echo $employee['address_city']; ?></td>
+                                                    <td><?php echo $employee['address_province']; ?></td>
+                                                    <td><?php echo $employee['address_country']; ?></td>
+                                                    <td><?php echo $employee['address_postal_code']; ?></td>
+                                                    <td><button onclick="confirmDelete(<?php echo $employee['employee_id']; ?>)">Delete</button></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
@@ -308,6 +382,28 @@ $tax = 0.15;
     bonusInput.addEventListener('input', calculateGrossSalary);
     benefitsInput.addEventListener('input', calculateNetSalary);
     taxInput.addEventListener('input', calculateNetSalary);
+
+    function confirmDelete(employeeId) {
+        if (confirm("Are you sure you want to delete this employee?")) {
+            fetch(window.location.href, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: 'action=delete_employee&employee_id=' + employeeId,
+                })
+                .then(response => {
+                    if (response.ok) {
+                        location.reload();
+                    } else {
+                        console.error('Error deleting employee');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error deleting employee:', error);
+                });
+        }
+    }
 </script>
 
 </html>

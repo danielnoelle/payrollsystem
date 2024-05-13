@@ -38,7 +38,7 @@
                                 <h3>General</h3>
                             </div>
                             <div class="category-items">
-                                <a href="overview.php"><i class="fa-light fa-grid"></i>Overview</a>
+                                
                                 <a href="manage.php"><i class="fa-regular fa-circle-dollar"></i>Payroll</a>
                                 <a href="report.php"><i class="fa-light fa-user-group"></i>Employees</a>
                                 <a href="history.php"><i class="fa-light fa-file-invoice"></i>Payroll History</a>
@@ -50,7 +50,7 @@
                             </div>
                             <div class="category-items">
                                 <a href="#" class="active"><i class="fa-regular fa-circle-info"></i>Support</a>
-                                <a href="settings.php"><i class="fa-regular fa-gear"></i>Settings</a>
+                                
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@
                         <div class="profile-info">
                             <h4 class="username">John Doe</h4>
                             <p class="role">Administrator</p>
-                            <button class="sign-out-btn">Sign Out</button>
+                            <button class="sign-out-btn" onclick="location.href = 'login.php'">Sign Out</button>
                         </div>
                     </div>
                     <div class="trademark">@2024 PayStation</div>

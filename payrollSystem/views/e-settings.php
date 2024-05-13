@@ -75,7 +75,6 @@
                                 <nav class="title-search-container">
                                     <ul>
                                         <li class="active"><a href="">Edit Profile</a></li>
-                                        <li><a href="security.php">Security</a></li>
                                     </ul>
                                 </nav>
                                 <div class="form-section">
